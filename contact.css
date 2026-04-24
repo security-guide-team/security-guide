@@ -1,0 +1,236 @@
+/* =========================================================
+  팀원 카드 전체 영역
+========================================================= */
+.contact-section {
+  padding-top: 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* =========================================================
+  팀원 카드 디자인
+========================================================= */
+.team-card {
+  padding: 28px;
+  border-radius: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 242, 208, 0.35);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+}
+
+.team-card.leader {
+  border-color: rgba(99, 242, 208, 0.28);
+}
+
+/* =========================================================
+  팀원 프로필 이미지
+========================================================= */
+.team-profile-img {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 2px solid rgba(99, 242, 208, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+  팀장 / 팀원 표시
+========================================================= */
+.team-role {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(99, 242, 208, 0.1);
+  color: #63f2d0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================================
+  이름 / 설명
+========================================================= */
+.team-card h3 {
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.team-card p {
+  color: #c7d0da;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+  담당 업무 리스트
+========================================================= */
+.team-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.team-card li {
+  color: #aeb8c4;
+  font-size: 14px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.team-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #63f2d0;
+}
+
+/* =========================================================
+  링크 버튼 (GitHub / Blog / Project)
+========================================================= */
+.member-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.member-links a {
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(99, 242, 208, 0.08);
+  border: 1px solid rgba(99, 242, 208, 0.2);
+  color: #63f2d0;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.member-links a:hover {
+  background: rgba(99, 242, 208, 0.16);
+  border-color: rgba(99, 242, 208, 0.45);
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+  문의 폼 영역
+========================================================= */
+.contact-form-section {
+  padding-top: 40px;
+  margin-top: 80px;
+}
+
+.contact-form {
+  max-width: 760px;
+  padding: 34px;
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* =========================================================
+  입력 필드
+========================================================= */
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.form-row label {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: rgba(99, 242, 208, 0.55);
+}
+
+.form-row textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+/* =========================================================
+  제출 버튼
+========================================================= */
+.form-btn {
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 999px;
+  background: #63f2d0;
+  color: #081018;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.form-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(99, 242, 208, 0.22);
+}
+
+/* =========================================================
+  반응형
+========================================================= */
+@media (max-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+
+  .team-card h3 {
+    font-size: 24px;
+  }
+}
