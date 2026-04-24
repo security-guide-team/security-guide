@@ -1,0 +1,449 @@
+/* 보안 이슈 페이지 전체 높이 */
+.issue-page {
+  min-height: calc(100vh - 170px);
+}
+
+/* 페이지 상단 소개 영역 */
+.issue-hero {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 8%;
+  background:
+    linear-gradient(135deg, rgba(99, 242, 208, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+}
+
+.issue-label {
+  margin-bottom: 12px;
+  color: #63f2d0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.issue-hero h1 {
+  margin-bottom: 16px;
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.issue-hero p:last-child {
+  max-width: 720px;
+  color: #c7d0da;
+  font-size: 18px;
+}
+
+/* 뉴스 목록과 영상 패널을 좌우로 배치하는 메인 레이아웃 */
+.issue-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.62fr);
+  align-items: start;
+  column-gap: 58px;
+  row-gap: 42px;
+  padding: 36px 8% 90px;
+}
+
+.news-section {
+  min-width: 0;
+}
+
+/* 뉴스 카드는 항상 1열로 정렬 */
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* 개별 뉴스 카드 기본 디자인 */
+.news-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.025)
+  );
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.news-card:hover,
+.news-card.is-open {
+  border-color: rgba(99, 242, 208, 0.35);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+}
+
+/* 카드에서 항상 보이는 제목/날짜 버튼 영역 */
+.news-card-head {
+  width: 100%;
+  min-height: 112px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 26px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.news-number {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(99, 242, 208, 0.11);
+  color: #63f2d0;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.news-title {
+  min-width: 0;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.news-date {
+  color: #9ca8b5;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* 카드 클릭 전에는 요약 영역을 숨김 */
+.news-card-body {
+  max-height: 0;
+  overflow: hidden;
+  border-top: 1px solid transparent;
+  opacity: 0;
+  transition:
+    max-height 0.32s ease,
+    opacity 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* 카드가 열렸을 때 요약 영역을 아래로 펼침 */
+.news-card.is-open .news-card-body {
+  max-height: 2600px;
+  border-color: rgba(255, 255, 255, 0.08);
+  opacity: 1;
+}
+
+/* 기사 이미지 */
+.news-image {
+  display: block;
+  width: calc(100% - 52px);
+  max-height: 340px;
+  margin: 24px 26px 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.news-summary .news-image {
+  width: 100%;
+  margin: 20px 0 22px;
+}
+
+/* 기사 요약 문단 영역 */
+.news-summary {
+  padding: 22px 26px 0;
+}
+
+.news-image + .news-summary {
+  padding-top: 0;
+}
+
+.news-summary p {
+  color: #c7d0da;
+  font-size: 16px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.news-summary p + p {
+  margin-top: 14px;
+}
+
+/* 원본 기사 링크 버튼 */
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 26px 26px;
+  padding: 11px 16px;
+  border: 1px solid rgba(99, 242, 208, 0.28);
+  border-radius: 12px;
+  background: rgba(99, 242, 208, 0.07);
+  color: #63f2d0;
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.news-link:hover {
+  border-color: rgba(99, 242, 208, 0.62);
+  background: rgba(99, 242, 208, 0.12);
+  transform: translateY(-2px);
+}
+
+/* 추후 목록 확장 기능을 붙일 더보기 버튼 */
+.more-button-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.more-button {
+  min-width: 180px;
+  padding: 14px 24px;
+  border: 1px solid rgba(99, 242, 208, 0.3);
+  border-radius: 14px;
+  background: rgba(99, 242, 208, 0.08);
+  color: #63f2d0;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.more-button:hover {
+  border-color: rgba(99, 242, 208, 0.65);
+  background: rgba(99, 242, 208, 0.14);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* 오른쪽 보안 트렌드 영상 패널 */
+.trend-panel {
+  position: sticky;
+  top: 110px;
+  min-width: 0;
+  margin-left: 24px;
+  margin-right: -24px;
+  padding: 34px 28px 38px;
+  border: 1px solid rgba(99, 242, 208, 0.22);
+  border-radius: 52px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.025)
+  );
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.22);
+}
+
+.trend-panel h2 {
+  margin-bottom: 26px;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.trend-panel .more-button-wrap {
+  margin-top: 30px;
+}
+
+/* 유튜브 썸네일 카드 */
+.video-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.video-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.video-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(0, 0, 0, 0.45));
+}
+
+.video-frame:hover {
+  border-color: rgba(99, 242, 208, 0.5);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
+}
+
+.video-frame:hover img {
+  transform: scale(1.04);
+}
+
+/* 썸네일 중앙 재생 버튼 */
+.video-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 36px solid #ffffff;
+  filter: drop-shadow(0 0 12px rgba(99, 242, 208, 0.45))
+    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+  transform: translate(-50%, -50%);
+  transition:
+    border-left-color 0.25s ease,
+    filter 0.25s ease;
+}
+
+.video-frame:hover .video-play {
+  border-left-color: #63f2d0;
+  filter: drop-shadow(0 0 16px rgba(99, 242, 208, 0.72))
+    drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+/* 태블릿 이하: 뉴스가 먼저 나오고 영상 패널이 아래로 내려감 */
+@media (max-width: 1100px) {
+  .issue-hero {
+    min-height: 200px;
+  }
+
+  .issue-hero h1 {
+    font-size: 38px;
+  }
+
+  .issue-content,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trend-panel {
+    position: static;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 36px;
+  }
+}
+
+/* 중간 화면에서 세로 간격 조정 */
+@media (max-width: 900px) {
+  .issue-content {
+    row-gap: 30px;
+  }
+}
+
+/* 모바일 화면 최적화 */
+@media (max-width: 600px) {
+  .issue-hero,
+  .issue-content {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .issue-hero h1 {
+    font-size: 32px;
+  }
+
+  .issue-hero p:last-child {
+    font-size: 16px;
+  }
+
+  .news-card-head {
+    grid-template-columns: auto minmax(0, 1fr);
+    min-height: 126px;
+    padding: 22px;
+  }
+
+  .news-date {
+    grid-column: 2;
+  }
+
+  .news-title {
+    font-size: 20px;
+  }
+
+  .news-summary {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .news-image {
+    width: calc(100% - 44px);
+    margin-left: 22px;
+    margin-right: 22px;
+    border-radius: 14px;
+  }
+
+  .news-summary .news-image {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .news-link {
+    margin-left: 22px;
+    margin-right: 22px;
+  }
+
+  .trend-panel {
+    padding: 28px 20px 30px;
+    border-radius: 28px;
+  }
+
+  .trend-panel h2 {
+    font-size: 22px;
+  }
+
+  .video-frame {
+    border-radius: 20px;
+  }
+}
