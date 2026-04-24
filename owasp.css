@@ -158,11 +158,29 @@ main {
 
 .modal-content ul {
   margin: 15px 0;
-  padding-left: 20px;
+  padding-left: 24px;
   text-align: left;
+  list-style: disc outside;
 }
 
 .modal-content li {
   margin-bottom: 10px;
   color: #d2d9e3;
+}
+
+.modal-content pre {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px 20px;
+  overflow-x: auto;
+  color: #e6f7ff;
+  margin: 16px 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.modal-content pre code {
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: inherit;
 }
