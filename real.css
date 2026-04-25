@@ -127,25 +127,6 @@ ul {
   max-width: 700px;
 }
 
-.hero-image {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  transform: translateY(-20px);
-}
-
-.hero-image img {
-  display: block;
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
-}
-
 .hero-subtitle {
   font-size: 14px;
   font-weight: 700;
@@ -167,59 +148,10 @@ ul {
   margin-bottom: 34px;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-/* =========================================================
-버튼
-========================================================= */
-.btn {
-  display: inline-block;
-  padding: 15px 26px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
-  transition: 0.25s ease;
-}
-
-.btn-primary {
-  background: #9fcb98;
-  color: #081018;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(159, 203, 152, 0.25);
-}
-
-.btn-secondary {
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.04);
-  color: #ffffff;
-}
-
-.btn-secondary:hover {
-  border-color: #9fcb98;
-  color: #9fcb98;
-}
-
 /* =========================================================
 사이트 소개하는 곳
 ========================================================= */
-.intro-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 28px;
-}
-
-.intro-text-box,
-.quick-card,
-.tip-item,
-.issue-card,
-.owasp-card {
+.issue-card {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.04),
@@ -227,164 +159,6 @@ ul {
   );
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-}
-
-.intro-text-box {
-  padding: 32px;
-  color: #d2d9e3;
-  font-size: 17px;
-}
-
-.intro-text-box p + p {
-  margin-top: 16px;
-}
-
-.quick-links {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.quick-card {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 24px;
-  transition: 0.25s;
-}
-
-.quick-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(159, 203, 152, 0.45);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-}
-
-.quick-number {
-  min-width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: rgba(159, 203, 152, 0.1);
-  color: #9fcb98;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 800;
-}
-
-.quick-card h3 {
-  font-size: 22px;
-  margin-bottom: 4px;
-  color: #ffffff;
-}
-
-.quick-card p {
-  font-size: 15px;
-  color: #b7c0cb;
-}
-
-/* =========================================================
-실생활 보안 수칙 파트
-========================================================= */
-.tips-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-}
-
-/* 수칙 하나하나 */
-.tip-item {
-  padding: 24px 28px;
-  font-size: 16px;
-  color: #eef2f7;
-  position: relative;
-  padding-left: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.tip-item::before {
-  content: '✓';
-  position: absolute;
-  left: 22px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: rgba(159, 203, 152, 0.14);
-  color: #9fcb98;
-  font-weight: 800;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.tip-item h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.tip-item p {
-  font-size: 15px;
-  color: #c7d0da;
-  margin-bottom: 10px;
-  line-height: 1.6;
-}
-
-.tip-item span {
-  font-size: 15px;
-  font-weight: 600;
-  color: #9fcb98;
-}
-
-.tips-more-link-wrap {
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-}
-
-.tips-more-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px 42px;
-  min-width: 320px;
-  border-radius: 18px;
-  background: linear-gradient(
-    180deg,
-    rgba(159, 203, 152, 0.08),
-    rgba(159, 203, 152, 0.03)
-  );
-  border: 1px solid rgba(159, 203, 152, 0.2);
-  color: #9fcb98;
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  transition: all 0.25s ease;
-}
-
-.tips-more-link:hover {
-  background: linear-gradient(
-    180deg,
-    rgba(99, 242, 208, 0.14),
-    rgba(159, 203, 152, 0.06)
-  );
-  border-color: rgba(159, 203, 152, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 16px 30px rgba(159, 203, 152, 0.1);
-}
-/* =========================================================
-최신 보안 뉴스
-========================================================= */
-.issue-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.issue-card {
   padding: 30px;
   min-height: 280px;
   display: flex;
@@ -417,45 +191,6 @@ ul {
   font-size: 16px;
   color: #c3ccd6;
   margin-bottom: 22px;
-}
-
-.card-link {
-  width: fit-content;
-  font-weight: 700;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 4px;
-  transition: 0.25s;
-}
-
-.card-link:hover {
-  color: #9fcb98;
-  border-color: #9fcb98;
-}
-
-/* =========================================================
-owasp 파트
-========================================================= */
-.owasp-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.owasp-card {
-  padding: 24px;
-  min-height: 190px;
-}
-
-.owasp-card h3 {
-  font-size: 22px;
-  color: #9fcb98;
-  margin-bottom: 12px;
-}
-
-.owasp-card p {
-  color: #c7d0da;
-  font-size: 15px;
 }
 
 /* =========================================================
@@ -521,14 +256,6 @@ owasp 파트
     font-size: 56px;
   }
 
-  .issue-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .owasp-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .hero-image img {
     max-width: 430px;
   }
@@ -563,22 +290,12 @@ owasp 파트
     font-size: 17px;
   }
 
-  .intro-grid,
-  .tips-list,
-  .owasp-grid {
-    grid-template-columns: 1fr;
-  }
-
   .section-title {
     font-size: 32px;
   }
 
   .bottom-content h2 {
     font-size: 32px;
-  }
-
-  .hero-buttons {
-    justify-content: center;
   }
 
   .hero-image img {
@@ -609,13 +326,7 @@ owasp 파트
     font-size: 15px;
   }
 
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .issue-card h3,
-  .quick-card h3 {
+  .issue-card h3 {
     font-size: 22px;
   }
 
@@ -632,19 +343,6 @@ owasp 파트
     max-width: 280px;
     margin-top: 10px;
   }
-}
-
-/* Add spacing between navigation bar and scrolled content */
-#issues {
-  padding-top: 100px; /* Adjust this value to increase or decrease the spacing */
-}
-
-#issues {
-  scroll-margin-top: 150px;
-}
-
-#tips {
-  scroll-margin-top: 50px;
 }
 
 /* real.html */
