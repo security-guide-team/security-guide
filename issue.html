@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Guide - 보안 이슈</title>
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="issue.css" />
+    <script src="issue.js" defer></script>
+  </head>
+  <body>
+    <!-- 상단 공통 네비게이션 -->
+    <header class="header">
+      <div class="logo">Security Guide</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="issue.html">보안 이슈</a></li>
+          <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="real.html">보안 수칙</a></li>
+          <li><a href="contact.html">팀 소개</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="issue-page">
+      <!-- 페이지 소개 영역 -->
+      <section class="issue-hero">
+        <p class="issue-label">Security News Archive</p>
+        <h1>보안 이슈 뉴스</h1>
+      </section>
+
+      <!-- 뉴스 카드 목록과 보안 트렌드 영상 영역을 나란히 배치 -->
+      <div class="issue-content">
+        <!-- 클릭하면 요약이 펼쳐지는 보안 뉴스 카드 목록 -->
+        <section class="news-section" aria-label="보안 이슈 뉴스 목록">
+          <div class="news-grid">
+            <article class="news-card">
+              <button
+                class="news-card-head"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="news-number">01</span>
+                <span class="news-title"
+                  >리눅스 패키지 관리 계층 ‘패키지킷’에서 취약점 발견... 12년간
+                  아무도 몰라</span
+                >
+                <time class="news-date" datetime="2026-04-24">2026.04.24</time>
+              </button>
+              <div class="news-card-body">
+                <!-- 기사 이미지와 문단형 요약 -->
+                <div class="news-summary">
+                  <p>
+                    리눅스 패키지 관리 도구인 PackageKit에서 일반 사용자가
+                    비밀번호 없이 루트 권한을 얻을 수 있는 취약점이 발견됐다.
+                  </p>
+                  <img
+                    class="news-image"
+                    src="img/news01.jpg"
+                    alt="패키지킷 취약점 관련 기사 이미지"
+                  />
+                  <p>
+                    이 취약점은 Pack2TheRoot, CVE-2026-41651로 등록됐고, 패키지
+                    설치·삭제 권한을 악용해 시스템 보안을 무너뜨릴 수 있다.
+                  </p>
+                  <p>
+                    문제는 이 취약점이 2014년 PackageKit 1.0.2부터 최신 버전까지
+                    약 12년 동안 존재했다는 점이다.
+                  </p>
+                  <p>
+                    Debian, Ubuntu, Fedora 같은 주요 리눅스 배포판과 Cockpit
+                    서버 관리 도구도 영향을 받을 수 있다.
+                  </p>
+                  <p>
+                    연구진은 AI 도구인 Claude Opus를 활용해 분석했고, 실제로 몇
+                    초 만에 루트 권한을 얻는 PoC도 확인했다.
+                  </p>
+                  <p>
+                    공격은 PackageKit 데몬을 충돌시키는 방식이라, 관리자는
+                    로그에서 pk-transaction.c:514 문구를 확인해 공격 시도를
+                    찾아볼 수 있다.
+                  </p>
+                  <p>
+                    대응 방법은 PackageKit 1.3.5 이상으로 업데이트하거나, 각
+                    리눅스 배포판에서 제공하는 보안 업데이트를 적용하는 것이다.
+                  </p>
+                  <p>
+                    핵심은 리눅스의 중요한 기본 관리 도구에서 오랫동안 숨어 있던
+                    권한 상승 취약점이 발견됐고, 실제 악용 가능성이 있으므로
+                    빠른 패치가 필요하다는 점이다.
+                  </p>
+                </div>
+                <a
+                  class="news-link"
+                  href="https://www.boannews.com/media/view.asp?idx=143346"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  원본 기사 보기
+                </a>
+              </div>
+            </article>
+
+            <!-- 아래 카드들은 제목, 날짜, 요약, 링크를 바꿔서 사용 -->
+            <article class="news-card">
+              <button
+                class="news-card-head"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="news-number">02</span>
+                <span class="news-title"
+                  >“검색 최상단 떴다고 믿지 마세요”... 안랩, 클로드 사칭 피싱
+                  사이트 경고</span
+                >
+                <time class="news-date" datetime="2026-04-22">2026.04.22</time>
+              </button>
+              <div class="news-card-body">
+                <img
+                  class="news-image"
+                  src="img/news02.jpg"
+                  alt="클로드 사칭 피싱 사이트 관련 기사 이미지"
+                />
+                <div class="news-summary">
+                  <p>
+                    최근 안랩은 생성형 AI 서비스 ‘클로드’를 사칭한 피싱 사이트를
+                    통해 악성코드를 유포하는 사례를 발견했다고 밝혔다.
+                  </p>
+                  <p>
+                    해당 사이트는 ‘클로드를 데스크톱에서 이용해 보세요’라는
+                    문구와 함께 사용자가 자연스럽게 다운로드를 시도하도록
+                    유도한다.
+                  </p>
+                  <p>
+                    하지만 실제로는 정상 프로그램이 아닌, 특정 명령어를 복사하여
+                    실행하도록 안내하는 방식으로 공격이 이루어진다.
+                  </p>
+                  <p>
+                    이 과정에서 사용자가 명령어를 실행하면 악성코드가 설치되며,
+                    PC 내부 파일, 브라우저 저장 정보, 로그인 정보 등이 탈취될 수
+                    있다.
+                  </p>
+                  <p>
+                    특히 이번 공격은 ‘ClickFix’라는 기법이 사용되었는데, 이는
+                    오류 해결을 가장해 사용자가 직접 악성 명령을 실행하도록
+                    만드는 방식이다.
+                  </p>
+                  <p>
+                    더 큰 문제는 이 피싱 사이트가 구글 검색 결과 최상단에
+                    노출되었다는 점이다.
+                  </p>
+                  <p>
+                    공격자는 검색 광고 기능을 악용하여 노출 순위를 조작했고,
+                    이를 통해 사용자들이 별다른 의심 없이 사이트에 접속하도록
+                    만들었다.
+                  </p>
+                  <p>
+                    이는 “검색 상단 = 안전하다”는 사용자들의 인식을 노린
+                    공격이다.
+                  </p>
+                  <p>
+                    이러한 피해를 예방하기 위해서는 프로그램을 반드시 공식
+                    경로에서 다운로드하고, 검색 결과 상단 여부와 관계없이 URL
+                    주소를 꼼꼼히 확인해야 한다.
+                  </p>
+                  <p>
+                    또한 운영체제와 브라우저를 최신 상태로 유지하고, 백신
+                    프로그램의 실시간 감시 기능을 활성화하는 것이 중요하다.
+                  </p>
+                </div>
+                <a
+                  class="news-link"
+                  href="https://www.boannews.com/media/view.asp?idx=143306"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  원본 기사 보기
+                </a>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <button
+                class="news-card-head"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="news-number">03</span>
+                <span class="news-title"
+                  >“설치형 보안 SW 다 빼!”... 정부 지시에 여의도 금융권
+                  ‘패닉’</span
+                >
+                <time class="news-date" datetime="2026-03-29">2026.03.29</time>
+              </button>
+              <div class="news-card-body">
+                <img
+                  class="news-image"
+                  src="img/news03.jpg"
+                  alt="설치형 보안 소프트웨어 폐지 관련 기사 이미지"
+                />
+                <div class="news-summary">
+                  <p>
+                    정부가 금융권에 설치형 보안 소프트웨어를 단계적으로
+                    폐지하라는 지침을 내리면서 은행과 증권사를 중심으로 큰
+                    혼란이 발생하고 있다.
+                  </p>
+                  <p>
+                    기존에는 키보드 보안, 방화벽, 백신 등 다양한 보안 프로그램을
+                    사용자 PC에 설치하도록 강제하는 방식이 일반적이었다.
+                  </p>
+                  <p>
+                    하지만 정부는 이러한 방식이 글로벌 기준에 맞지 않고
+                    구조적으로 취약하다는 점을 문제로 지적하며 전면 개편을
+                    추진하고 있다.
+                  </p>
+                  <p>
+                    특히 웹 브라우저 보안을 우회할 수 있다는 연구 결과가
+                    나오면서 기존 방식에 대한 신뢰가 크게 흔들렸다.
+                  </p>
+                  <p>
+                    이에 따라 정부는 보안의 중심을 사용자 PC에서 서버로 옮기는
+                    방향으로 전환하고, 다중 인증(MFA)과
+                    이상금융거래탐지시스템(FDS) 도입을 확대할 계획이다.
+                  </p>
+                  <p>
+                    이는 해외 금융사들이 사용하는 서버 중심 보안 모델과 유사한
+                    방식이다.
+                  </p>
+                  <p>
+                    그러나 금융권에서는 갑작스러운 정책 변화에 대응할 준비가
+                    부족하다며 현실적인 어려움을 강하게 호소하고 있다.
+                  </p>
+                  <p>
+                    특히 PC 기반 거래 비중이 높은 은행과 증권사는 기존 시스템을
+                    단기간에 대체할 방법이 없어 큰 부담을 느끼고 있다.
+                  </p>
+                  <p>
+                    또한 설치형 보안 프로그램은 그동안 사고 발생 시 금융사가
+                    책임을 일부 회피할 수 있는 근거로 작용해왔는데, 이것이
+                    사라지면 모든 책임을 금융사가 떠안아야 할 가능성도 제기된다.
+                  </p>
+                  <p>
+                    결국 정부의 보안 정책 방향과 금융권의 현실적인 한계 사이에서
+                    갈등이 발생하고 있으며, 당분간 논의와 조정이 계속될 것으로
+                    보인다.
+                  </p>
+                </div>
+                <a
+                  class="news-link"
+                  href="https://www.boannews.com/media/view.asp?idx=142897"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  원본 기사 보기
+                </a>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <button
+                class="news-card-head"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="news-number">04</span>
+                <span class="news-title"
+                  >“이름만 젠틀맨” 1570개 기업 감염시킨 랜섬웨어 ‘포식자’</span
+                >
+                <time class="news-date" datetime="2026-04-23">2026.04.23</time>
+              </button>
+              <div class="news-card-body">
+                <img
+                  class="news-image"
+                  src="img/news04.jpg"
+                  alt="랜섬웨어 ‘포식자’ 관련 기사 이미지"
+                />
+                <div class="news-summary">
+                  <p>
+                    글로벌 보안 기업 체크포인트에 따르면 ‘더 젠틀맨’ 랜섬웨어
+                    조직이 1570개 이상의 기업 네트워크를 감염시킨 것으로
+                    확인됐다.
+                  </p>
+                  <p>
+                    이 조직은 2025년 등장 이후 빠르게 세력을 확장하며 단기간에
+                    가장 활발한 랜섬웨어 공격 그룹 중 하나로 떠올랐다.
+                  </p>
+                  <p>
+                    특히 윈도우, 리눅스, NAS 등 다양한 운영체제를 동시에 공격할
+                    수 있는 범용성을 갖춘 악성코드를 사용해 피해를 확대하고
+                    있다.
+                  </p>
+                  <p>
+                    공격 과정에서는 PowerShell을 이용해 백신과 방화벽을
+                    무력화하고, GPO를 악용해 조직 전체 시스템을 장악하는
+                    고도화된 수법을 사용한다.
+                  </p>
+                  <p>
+                    또한 암호화된 통신과 프록시 악성코드를 활용해 보안 감시를
+                    회피하며, 추가 악성코드를 주입해 공격 범위를 확장한다.
+                  </p>
+                  <p>
+                    최근 랜섬웨어 공격은 몇 시간 내에 전체 시스템을 마비시키는
+                    속도전 형태로 진화하고 있으며 피해 규모도 커지고 있다.
+                  </p>
+                  <p>
+                    2026년 1분기에만 2000건 이상의 디지털 갈취 사건이 발생하는
+                    등 랜섬웨어 위협은 더욱 심각해지고 있는 상황이다.
+                  </p>
+                </div>
+                <a
+                  class="news-link"
+                  href="https://www.boannews.com/media/view.asp?idx=143317"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  원본 기사 보기
+                </a>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <button
+                class="news-card-head"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="news-number">05</span>
+                <span class="news-title"
+                  >또 뚫린 프랑스 공공 인프라... 이번엔 ANTS 포털 해킹</span
+                >
+                <time class="news-date" datetime="2026-04-22">2026.04.22</time>
+              </button>
+              <div class="news-card-body">
+                <img
+                  class="news-image"
+                  src="img/news05.jpg"
+                  alt="프랑스 ANTS 포털 해킹 관련 기사 이미지"
+                />
+                <div class="news-summary">
+                  <p>
+                    프랑스 공공 포털 ANTS가 관리자 계정 도용 해킹을 당해
+                    개인정보(ID, 이름, 이메일, 생년월일, 일부 주소·전화번호)가
+                    대량 유출됐다.
+                  </p>
+                  <p>
+                    첨부 파일은 유출되지 않았지만, 노출된 정보로 표적형 공격
+                    위험이 커진 상황이다.
+                  </p>
+                  <p>
+                    이번 공격은 시스템 취약점이 아니라 정상 관리자 계정을
+                    탈취하는 방식으로 이루어져, 2단계 인증 등 기존 보안 시스템이
+                    제대로 대응하지 못했다는 문제가 드러났다.
+                  </p>
+                  <p>
+                    프랑스 당국은 사건을 보고하고 수사를 진행 중이며, 최근
+                    EduConnect 해킹, FICOBA 데이터 유출 등 공공 인프라 대상 연쇄
+                    사이버 공격과 연결돼 더 큰 충격을 주고 있다.
+                  </p>
+                  <p>
+                    현재 대응으로 2단계 인증 확대와 내부 통제 강화를 추진
+                    중이지만, 전문가들은 근본적으로 제로트러스트 기반 보안
+                    구조로 전면 개편이 필요하다고 지적한다.
+                  </p>
+                  <p>
+                    핵심은 계정 탈취 공격이 기존 보안 체계를 무력화시키며 공공
+                    서비스 신뢰를 크게 흔들고 있고, 구조적인 보안 패러다임
+                    변화가 필요하다는 점이다.
+                  </p>
+                </div>
+                <a
+                  class="news-link"
+                  href="https://www.boannews.com/media/view.asp?idx=143304"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  원본 기사 보기
+                </a>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <button
+                class="news-card-head"
+                type="button"
+                aria-expanded="false"
+              >
+                <span class="news-number">06</span>
+                <span class="news-title"
+                  >이란 정보국의 ‘다중 인격’ 해킹 전술? 독립 해커인 척하며 세계
+                  안보 농락해</span
+                >
+                <time class="news-date" datetime="2026-04-22">2026.04.22</time>
+              </button>
+              <div class="news-card-body">
+                <img
+                  class="news-image"
+                  src="img/news06.jpg"
+                  alt="이란 정보국 해킹 관련 기사 이미지"
+                />
+                <div class="news-summary">
+                  <p>
+                    이란 정보국(MOIS)이 ‘홈랜드 저스티스’, ‘카르마’,
+                    ‘한다라’라는 여러 해커 집단으로 위장해 활동한 단일 국가 주도
+                    해킹 조직인 것이 밝혀졌다.
+                  </p>
+                  <p>
+                    조사 결과 이들은 동일한 도구, 인프라, 지휘 체계를 사용하며
+                    실제로는 이란 연계 해킹 그룹 ‘보이드 맨티코어’로 확인됐다.
+                  </p>
+                  <p>
+                    이들은 알바니아 정부 시스템에 14개월간 잠복 침투한 뒤 정보를
+                    탈취하고 시스템을 파괴했으며, 이후 자신들을 정의로운
+                    해커처럼 포장해 정치적 혼란을 유도했다.
+                  </p>
+                  <p>
+                    또한 이스라엘 등 특정 국가를 대상으로 데이터를 영구 삭제하는
+                    와이퍼 공격, 데이터 유출 후 협박, 심리전 등 정보전까지
+                    병행했다.
+                  </p>
+                  <p>
+                    특히 소프트웨어 업데이트로 위장한 피싱 공격을 통해
+                    악성코드를 퍼뜨리는 방식도 사용했다.
+                  </p>
+                  <p>
+                    미국 법무부는 관련 범죄 도메인을 압수하며 대응에 나섰다.
+                  </p>
+                  <p>
+                    핵심은 국가가 여러 해커 조직으로 위장해 장기간
+                    침투·파괴·심리전을 수행하는 고도화된 사이버 공격을 벌이고
+                    있으며, 이에 대한 보안 대응 강화가 필요하다는 점이다.
+                  </p>
+                </div>
+                <a
+                  class="news-link"
+                  href="https://www.boannews.com/media/view.asp?idx=143307&skind=D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  원본 기사 보기
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="more-button-wrap">
+            <button class="more-button" type="button">뉴스 더보기</button>
+          </div>
+        </section>
+
+        <!-- 유튜브 썸네일을 클릭하면 새 창으로 영상 이동 -->
+        <aside class="trend-panel" aria-label="보안 트렌드 유튜브 영상">
+          <h2>최신 보안 트렌드를 확인하세요</h2>
+
+          <div class="video-list">
+            <a
+              class="video-frame"
+              href="https://www.youtube.com/watch?v=1yu3hr6yUok"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/1yu3hr6yUok/hqdefault.jpg"
+                alt="보안 트렌드 유튜브 영상 1"
+                loading="lazy"
+              />
+              <span class="video-play" aria-hidden="true"></span>
+            </a>
+
+            <a
+              class="video-frame"
+              href="https://www.youtube.com/watch?v=mN_D9yU_smg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://img.youtube.com/vi/mN_D9yU_smg/hqdefault.jpg"
+                alt="보안 트렌드 유튜브 영상 2"
+                loading="lazy"
+              />
+              <span class="video-play" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="more-button-wrap">
+            <button class="more-button" type="button">영상 더보기</button>
+          </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 주요 사이버 보안 위협과 예방법 안내 웹사이트</p>
+    </footer>
+  </body>
+</html>
