@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ html {
   3. 사이트 전체 기본 설정
 ========================================================= */
 body {
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
   background-color: #0a0f16;
   color: #f5f7fa;
   line-height: 1.6;
@@ -112,7 +112,7 @@ ul {
   padding: 0 8%;
   background:
     linear-gradient(rgba(6, 10, 16, 0.6), rgba(6, 10, 16, 0.78)),
-    url('img/main-bg.jpg') center/cover no-repeat;
+    url("img/main-bg.jpg") center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -318,7 +318,7 @@ ul {
 }
 
 .tip-item::before {
-  content: '✓';
+  content: "✓";
   position: absolute;
   left: 22px;
   top: 50%;
@@ -487,7 +487,7 @@ owasp 파트
   padding: 50px 8%;
   background:
     linear-gradient(rgba(5, 10, 15, 0.6), rgba(5, 10, 15, 0.76)),
-    url('img/bottom-bg.jpg') center/cover no-repeat;
+    url("img/bottom-bg.jpg") center/cover no-repeat;
 }
 
 .bottom-overlay {
@@ -650,5 +650,177 @@ owasp 파트
 
   .hero-image img {
     max-width: 280px;
+  }
+}
+
+/* =========================================================
+  real.html 보안 수칙 페이지
+========================================================= */
+
+.real-hero {
+  justify-content: center;
+  text-align: center;
+  min-height: 115vh;
+  padding: 110px 4% 90px;
+}
+
+.real-hero-content {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.rule-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 38px 0 48px;
+  flex-wrap: wrap;
+}
+
+.rule-tab {
+  min-width: 120px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: rgba(99, 242, 208, 0.1);
+  border: 1px solid rgba(99, 242, 208, 0.35);
+  color: #63f2d0;
+  font-weight: 800;
+  text-align: center;
+}
+
+.rule-tab.active {
+  background: #63f2d0;
+  color: #081018;
+  font-weight: 900;
+}
+
+.rule-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  text-align: left;
+}
+
+.rule-card {
+  min-height: 560px;
+  padding: 36px;
+}
+
+.rule-summary {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(99, 242, 208, 0.08);
+  border-left: 4px solid #63f2d0;
+  color: #c8fff3;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.rule-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+}
+
+.rule-points li {
+  padding: 10px 0;
+  color: #cbd5df;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  line-height: 1.5;
+}
+
+.rule-points strong {
+  display: inline-block;
+  min-width: 48px;
+  margin-right: 8px;
+  color: #63f2d0;
+}
+
+.rule-desc {
+  margin-top: auto;
+  padding-top: 12px;
+  color: #aeb9c6;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.action-title {
+  text-align: center;
+}
+
+.action-card-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.action-card {
+  width: 520px;
+  max-width: 45%;
+  padding: 50px 45px;
+}
+
+.action-card h3 {
+  margin-bottom: 32px;
+}
+
+.action-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.action-list li {
+  margin-bottom: 22px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.do-list li {
+  color: #63f2d0;
+}
+
+.dont-list li {
+  color: #ff6b6b;
+}
+
+.action-bottom-box {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.do-bottom {
+  border-left: 4px solid #63f2d0;
+}
+
+.dont-bottom {
+  border-left: 4px solid #ff6b6b;
+}
+
+@media (max-width: 1200px) {
+  .rule-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .action-card {
+    width: 100%;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 700px) {
+  .rule-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-card {
+    width: 100%;
+    max-width: 100%;
   }
 }
