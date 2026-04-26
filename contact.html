@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Guide</title>
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <!-- 위쪽 이동하는 칸 -->
+    <header class="header">
+      <div class="logo">Security Guide</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="issue.html">보안 이슈</a></li>
+          <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="real.html">보안 수칙</a></li>
+          <li><a href="contact.html">팀 소개</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- 팀원 역할 카드 -->
+    <section class="section contact-section">
+      <div class="section-title-wrap">
+        <p class="section-label">Team Members</p>
+        <h2 class="section-title">팀 구성 및 역할</h2>
+      </div>
+      <div class="team-grid">
+        <!-- 박형진 -->
+        <div class="team-card leader">
+          <img src="img/realpark.jpg" class="team-profile-img" />
+          <span class="team-role">팀장</span>
+          <h3>박형진</h3>
+          <p>OWASP Top10 페이지 제작</p>
+          <ul>
+            <li>프로젝트 전체 구조 설계 및 구현</li>
+            <li>OWASP TOP10 페이지 설계 및 구현</li>
+            <li>최종 결과물 취합 및 배포</li>
+          </ul>
+          <div class="member-links">
+            <a href="https://github.com/hamzgi" target="_blank">GitHub</a>
+            <a href="https://hamzgi.tistory.com/" target="_blank">Blog</a>
+            <a
+              href="https://my-portfolio-one-roan-5qzfohg8ig.vercel.app/"
+              target="_blank"
+              >Project</a
+            >
+          </div>
+        </div>
+
+        <!-- 박시우 -->
+        <div class="team-card">
+          <img src="img/siwoo.png" class="team-profile-img" />
+          <span class="team-role">팀원</span>
+          <h3>박시우</h3>
+          <p>보안 수칙 페이지 제작</p>
+          <ul>
+            <li>자료 조사 및 정리</li>
+            <li>보안 수칙 페이지 구현</li>
+            <li>문서 작성 및 발표</li>
+          </ul>
+          <div class="member-links">
+            <a href="https://github.com/park478392" target="_blank">GitHub</a>
+            <a href="https://blog.naver.com/darknix03088" target="_blank"
+              >Blog</a
+            >
+            <a href=":https://abc-theta-seven.vercel.app/" target="_blank"
+              >Project</a
+            >
+          </div>
+        </div>
+
+        <!-- 박지민 -->
+        <div class="team-card">
+          <img src="img/jimin.jpg" class="team-profile-img" />
+          <span class="team-role">팀원</span>
+          <h3>박지민</h3>
+          <p>보안 이슈 페이지 제작</p>
+          <ul>
+            <li>뉴스 카드 동적 기능 구현</li>
+            <li>페이지 색상 디자인</li>
+            <li>다크모드 디자인 및 전환 구현</li>
+          </ul>
+          <div class="member-links">
+            <a href="https://github.com/wlals0693" target="_blank">GitHub</a>
+            <a href="https://jimin0703.tistory.com/" target="_blank">Blog</a>
+            <a
+              href="https://portfolio-zeta-ten-lrqroc49jx.vercel.app/"
+              target="_blank"
+              >Project</a
+            >
+          </div>
+        </div>
+
+        <!-- 최보원 -->
+        <div class="team-card">
+          <img src="img/bowon.png" class="team-profile-img" />
+          <span class="team-role">팀원</span>
+          <h3>최보원</h3>
+          <p>메인 홈 페이지 및 Contact 페이지 제작</p>
+          <ul>
+            <li>팀 소개 페이지 설계 및 구현</li>
+            <li>메인 홈 페이지 설계 및 구현</li>
+            <li>총괄 디자인 담당</li>
+          </ul>
+          <div class="member-links">
+            <a href="https://github.com/Solalise" target="_blank">GitHub</a>
+            <a href="https://choebowon0.tistory.com/" target="_blank">Blog</a>
+            <a
+              href="https://portfolio-site-green-eta.vercel.app/"
+              target="_blank"
+              >Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 문의 폼 -->
+    <section class="section contact-form-section">
+      <div class="section-title-wrap">
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">문의 및 의견 남기기</h2>
+      </div>
+      <form class="contact-form">
+        <div class="form-row">
+          <label for="name">이름</label>
+          <input type="text" id="name" placeholder="이름을 입력하세요" />
+        </div>
+        <div class="form-row">
+          <label for="email">이메일</label>
+          <input type="email" id="email" placeholder="이메일을 입력하세요" />
+        </div>
+        <div class="form-row">
+          <label for="message">문의 내용</label>
+          <textarea
+            id="message"
+            placeholder="문의 또는 의견을 입력하세요"
+          ></textarea>
+        </div>
+        <button type="submit" class="form-btn">의견 보내기</button>
+      </form>
+    </section>
+    <footer class="footer">
+      <p>© 2026 '복학경로당' Security Guide</p>
+    </footer>
+  </body>
+</html>
