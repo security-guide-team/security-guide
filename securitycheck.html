@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Guide - 위험 진단</title>
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="securitycheck.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Security Guide</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="issue.html">보안 이슈</a></li>
+          <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="practice.html">보안 실습</a></li>
+          <li><a href="securitycheck.html" class="active">위험 진단</a></li>
+          <li><a href="real.html">보안 수칙</a></li>
+          <li><a href="contact.html">팀 소개</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="diagnosis-hero section">
+        <div class="diagnosis-hero-copy">
+          <p class="section-label">Security Risk Diagnosis</p>
+          <h1 class="section-title">실생활 보안 위험 진단</h1>
+          <p class="diagnosis-lead">
+            비밀번호, 메일 내용, URL을 입력하면 위험 신호를 점수와 이유로 확인할 수 있습니다.<br />
+            모든 검사는 브라우저 안에서만 실행됩니다.
+          </p>
+        </div>
+        <div class="risk-summary">
+          <span class="summary-label">Quick Check</span>
+          <strong>주의</strong>
+          <p>
+            이 진단은 확률과 위험 신호를 통해 판단을 도와주는 보조 도구입니다.
+            결과만 보고 안전하다고 확신하지 말고, 출처와 상황을 함께 확인하세요.
+          </p>
+        </div>
+      </section>
+
+      <section class="section diagnosis-grid" aria-label="보안 위험 진단 도구">
+        <article class="diagnosis-card">
+          <div class="card-head">
+            <span class="diagnosis-icon">PW</span>
+            <div>
+              <p class="section-label">Password</p>
+              <h2>비밀번호 안전도 검사</h2>
+            </div>
+          </div>
+
+          <label class="field-label" for="passwordInput">비밀번호 입력</label>
+          <div class="password-field">
+            <input
+              id="passwordInput"
+              type="password"
+              autocomplete="new-password"
+              placeholder="예: MySecure!2026"
+            />
+            <button
+              class="password-eye"
+              type="button"
+              id="togglePassword"
+              aria-label="비밀번호 보기"
+              aria-pressed="false"
+            >
+              &#128065;
+            </button>
+          </div>
+
+          <button class="analyze-btn" type="button" id="passwordCheck">진단하기</button>
+
+          <div class="result-box" id="passwordResult">
+            <div class="meter">
+              <span style="width: 0%"></span>
+            </div>
+            <strong>비밀번호를 입력하면 안전도를 분석합니다.</strong>
+            <p>길이, 문자 조합, 반복 패턴, 흔한 단어 사용 여부를 확인합니다.</p>
+          </div>
+        </article>
+
+        <article class="diagnosis-card">
+          <div class="card-head">
+            <span class="diagnosis-icon">MAIL</span>
+            <div>
+              <p class="section-label">Phishing Mail</p>
+              <h2>피싱 메일 위험도 검사</h2>
+            </div>
+          </div>
+
+          <label class="field-label" for="mailInput">메일 제목 또는 본문 입력</label>
+          <textarea
+            id="mailInput"
+            placeholder="예: 계정이 정지됩니다. 지금 링크를 눌러 본인 인증을 완료하세요."
+          ></textarea>
+
+          <button class="analyze-btn" type="button" id="mailCheck">진단하기</button>
+
+          <div class="result-box" id="mailResult">
+            <div class="meter">
+              <span style="width: 0%"></span>
+            </div>
+            <strong>메일 내용을 입력하면 피싱 가능성을 퍼센트로 표시합니다.</strong>
+            <p>긴급성, 개인정보 요구, 링크 유도, 금전/쿠폰 문구 등을 함께 확인합니다.</p>
+          </div>
+        </article>
+
+        <article class="diagnosis-card">
+          <div class="card-head">
+            <span class="diagnosis-icon">URL</span>
+            <div>
+              <p class="section-label">Safe Link</p>
+              <h2>URL 안전도 검사</h2>
+            </div>
+          </div>
+
+          <label class="field-label" for="urlInput">URL 입력</label>
+          <input id="urlInput" type="text" placeholder="예: https://example.com/login" />
+
+          <button class="analyze-btn" type="button" id="urlCheck">진단하기</button>
+
+          <div class="result-box" id="urlResult">
+            <div class="meter">
+              <span style="width: 0%"></span>
+            </div>
+            <strong>URL을 입력하면 접속 전 확인해야 할 위험 요소를 보여줍니다.</strong>
+            <p>HTTPS 여부, IP 주소 사용, 짧은 링크, 특수문자, 의심 키워드를 확인합니다.</p>
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Security Guide</p>
+    </footer>
+
+    <script src="securitycheck.js"></script>
+  </body>
+</html>
