@@ -3,25 +3,101 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Security Guide</title>
+    <title>OWASP Top 10 뷰어</title>
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="owasp.css" />
   </head>
   <body>
-    <!-- 위쪽 이동하는 칸 -->
     <header class="header">
       <div class="logo">Security Guide</div>
       <nav class="nav">
         <ul>
-          <li><a href="main.html">홈</a></li>
+          <li><a href="index.html">홈</a></li>
           <li><a href="issue.html">보안 이슈</a></li>
           <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="practice.html">보안 실습</a></li>
           <li><a href="real.html">보안 수칙</a></li>
           <li><a href="contact.html">팀 소개</a></li>
         </ul>
       </nav>
     </header>
+
+    <main class="section">
+      <div class="section-title-wrap">
+        <p class="section-label">OWASP Top 10</p>
+        <h1 class="section-title">한 페이지로 보는 OWASP Top 10 2025</h1>
+        <p class="section-description">
+          오른쪽 순위 버튼을 클릭하면 왼쪽 카드에서 해당 항목의 주요 내용,
+          예방법, 공격 시나리오를 바로 확인할 수 있습니다.
+        </p>
+      </div>
+
+      <div class="top10-viewer">
+        <section class="top10-panel">
+          <div class="top10-panel-head">
+            <div class="top10-badge">TOP 1</div>
+            <div>
+              <p class="top10-subtitle">웹 애플리케이션 보안 위험</p>
+              <h2 class="top10-title" id="panelTitle">
+                A01:2025 – Broken Access Control
+              </h2>
+              <p class="top10-intro" id="panelIntro">
+                사용자가 허용된 권한을 벗어나 다른 사용자의 정보나 관리자 기능에
+                접근할 수 있는 취약점입니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="top10-summary-grid">
+            <article class="top10-card">
+              <p class="card-label">위험 요약</p>
+              <p class="card-value" id="panelRisk">
+                무단 접근, 권한 우회, 민감 데이터 노출
+              </p>
+            </article>
+            <article class="top10-card">
+              <p class="card-label">관련 CWE</p>
+              <p class="card-value" id="panelCwe">CWE-200, CWE-284, CWE-285</p>
+            </article>
+            <article class="top10-card">
+              <p class="card-label">예방 핵심</p>
+              <p class="card-value" id="panelCore">
+                기본 거부, 서버 측 검증, 경계 테스트
+              </p>
+            </article>
+          </div>
+
+          <div class="top10-detail">
+            <div class="top10-section">
+              <h3>설명</h3>
+              <div id="panelDescription"></div>
+            </div>
+            <div class="top10-section">
+              <h3>예방 방법</h3>
+              <ul id="panelPrevention"></ul>
+            </div>
+            <div class="top10-section">
+              <h3>공격 시나리오</h3>
+              <div id="panelScenarios"></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="top10-sidebar">
+          <div class="top10-sidebar-head">
+            <p>Top 10 목록</p>
+            <span>순서대로 클릭하여 내용을 확인하세요.</span>
+          </div>
+          <div class="top10-list" id="top10List"></div>
+        </aside>
+      </div>
+    </main>
+
     <footer class="footer">
-      <p>© 2026 주요 사이버 보안 위협과 예방법 안내 웹사이트</p>
+      <p>© 2026 '복학경로당' Security Guide</p>
     </footer>
+
+    <script src="owasp.js"></script>
   </body>
 </html>

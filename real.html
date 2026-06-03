@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Security Guide - 보안 수칙</title>
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -12,377 +13,157 @@
       <div class="logo">Security Guide</div>
       <nav class="nav">
         <ul>
-          <li><a href="main.html">홈</a></li>
+          <li><a href="index.html">홈</a></li>
           <li><a href="issue.html">보안 이슈</a></li>
           <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="practice.html">보안 실습</a></li>
           <li><a href="real.html">보안 수칙</a></li>
           <li><a href="contact.html">팀 소개</a></li>
         </ul>
       </nav>
     </header>
 
-    <section
-      class="hero"
-      style="
-        justify-content: center;
-        text-align: center;
-        min-height: 115vh;
-        padding: 110px 4% 90px;
-      "
-    >
+    <section class="hero real-hero">
       <div class="hero-overlay"></div>
 
-      <div
-        class="hero-content"
-        style="max-width: 1500px; width: 100%; margin: 0 auto"
-      >
+      <div class="hero-content real-hero-content">
         <p class="hero-subtitle">SECURITY CHECKLIST</p>
-
         <h1>실생활 보안 수칙</h1>
-
         <p class="hero-text">
           보안은 특별한 기술보다 매일 반복하는 작은 습관에서 시작됩니다.<br />
           아래 수칙들을 확인하고 안전한 인터넷 사용 습관을 만들어 봅시다.
         </p>
 
-        <div
-          style="
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin: 38px 0 48px;
-            flex-wrap: wrap;
-          "
-        >
-          <div
-            style="
-              min-width: 120px;
-              padding: 14px 22px;
-              border-radius: 14px;
-              background: #63f2d0;
-              color: #081018;
-              font-weight: 900;
-              text-align: center;
-            "
-          >
-            전체
-          </div>
-
-          <div
-            style="
-              min-width: 120px;
-              padding: 14px 22px;
-              border-radius: 14px;
-              background: rgba(99, 242, 208, 0.1);
-              border: 1px solid rgba(99, 242, 208, 0.35);
-              color: #63f2d0;
-              font-weight: 800;
-              text-align: center;
-            "
-          >
-            계정 관리
-          </div>
-
-          <div
-            style="
-              min-width: 120px;
-              padding: 14px 22px;
-              border-radius: 14px;
-              background: rgba(99, 242, 208, 0.1);
-              border: 1px solid rgba(99, 242, 208, 0.35);
-              color: #63f2d0;
-              font-weight: 800;
-              text-align: center;
-            "
-          >
-            기기 보안
-          </div>
-
-          <div
-            style="
-              min-width: 120px;
-              padding: 14px 22px;
-              border-radius: 14px;
-              background: rgba(99, 242, 208, 0.1);
-              border: 1px solid rgba(99, 242, 208, 0.35);
-              color: #63f2d0;
-              font-weight: 800;
-              text-align: center;
-            "
-          >
-            피싱 대응
-          </div>
-
-          <div
-            style="
-              min-width: 120px;
-              padding: 14px 22px;
-              border-radius: 14px;
-              background: rgba(99, 242, 208, 0.1);
-              border: 1px solid rgba(99, 242, 208, 0.35);
-              color: #63f2d0;
-              font-weight: 800;
-              text-align: center;
-            "
-          >
-            데이터 보호
-          </div>
+        <div class="rule-tabs">
+          <div class="rule-tab active">전체</div>
+          <div class="rule-tab">계정 관리</div>
+          <div class="rule-tab">기기 보안</div>
+          <div class="rule-tab">피싱 대응</div>
+          <div class="rule-tab">데이터 보호</div>
         </div>
 
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-            text-align: left;
-          "
-        >
-          <article class="issue-card" style="min-height: 520px; padding: 36px">
+        <div class="rule-card-grid">
+          <article class="issue-card rule-card">
             <span class="issue-tag">ACCOUNT</span>
             <h3>계정 관리</h3>
-            <p>
-              여러 사이트에서 동일한 비밀번호를 사용하면 하나의 유출이 전체 계정
-              위험으로 이어집니다.
-            </p>
-            <p>
-              서비스마다 다른 비밀번호를 사용하고 반드시 2단계 인증을 설정해야
-              합니다.
-            </p>
-            <p>
-              특히 이메일 계정은 모든 계정의 중심이므로 가장 강하게 보호해야
-              합니다.
+            <div class="rule-summary">계정 탈취를 막는 첫 번째 방어선</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 비밀번호 재사용</li>
+              <li><strong>대응</strong> 서비스별 다른 비밀번호</li>
+              <li><strong>강화</strong> 2단계 인증(MFA)</li>
+              <li><strong>관리</strong> 로그인 기록 확인</li>
+            </ul>
+
+            <p class="rule-desc">
+              하나의 계정이 해킹되면 이메일, SNS, 클라우드까지 연쇄적으로 침해될
+              수 있습니다. 특히 이메일 계정은 모든 계정의 중심이므로 가장 강하게
+              보호해야 합니다.
             </p>
           </article>
 
-          <article class="issue-card" style="min-height: 520px; padding: 36px">
+          <article class="issue-card rule-card">
             <span class="issue-tag">DEVICE</span>
             <h3>기기 보안</h3>
-            <p>
-              기기에는 개인정보와 로그인 정보가 저장되어 있기 때문에 매우 중요한
-              보안 대상입니다.
+            <div class="rule-summary">개인정보가 모여있는 핵심 장치</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 업데이트 미적용</li>
+              <li><strong>대응</strong> OS 및 앱 최신 유지</li>
+              <li><strong>강화</strong> 잠금 화면 설정</li>
+              <li><strong>주의</strong> 출처 불명 앱 설치 금지</li>
+            </ul>
+
+            <p class="rule-desc">
+              스마트폰과 PC는 인증 수단이기 때문에 침해되면 계정 보호가 무너질
+              수 있습니다. 특히 출처 불명의 앱이나 프로그램 설치는 악성코드
+              감염의 주요 원인이 됩니다.
             </p>
-            <p>
-              운영체제와 앱을 최신 상태로 유지하지 않으면 공격에 노출될 수
-              있습니다.
-            </p>
-            <p>잠금 설정과 출처 불명의 프로그램 차단이 필수입니다.</p>
           </article>
 
-          <article class="issue-card" style="min-height: 520px; padding: 36px">
+          <article class="issue-card rule-card">
             <span class="issue-tag">PHISHING</span>
             <h3>피싱 대응</h3>
-            <p>피싱 공격은 사용자를 속여 정보를 입력하게 만드는 방식입니다.</p>
-            <p>
-              링크를 바로 클릭하지 말고 URL을 확인하거나 직접 접속해야 합니다.
+            <div class="rule-summary">사용자의 심리를 노리는 공격</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 긴급/무료 문구</li>
+              <li><strong>대응</strong> URL 주소 확인</li>
+              <li><strong>강화</strong> 공식 사이트 직접 접속</li>
+              <li><strong>확인</strong> 발신자 검증</li>
+            </ul>
+
+            <p class="rule-desc">
+              피싱은 기술보다 심리를 이용하는 공격입니다. 링크를 바로 누르기보다
+              주소를 직접 입력하거나 공식 앱을 통해 접속하는 습관이 중요합니다.
             </p>
-            <p>긴급성을 강조하는 메시지는 대부분 위험 신호입니다.</p>
           </article>
 
-          <article class="issue-card" style="min-height: 520px; padding: 36px">
+          <article class="issue-card rule-card">
             <span class="issue-tag">DATA</span>
             <h3>데이터 보호</h3>
-            <p>데이터는 한 번 유출되거나 손실되면 복구가 어려울 수 있습니다.</p>
-            <p>랜섬웨어에 대비해 중요한 파일은 반드시 백업해야 합니다.</p>
-            <p>민감한 정보는 안전하게 관리해야 합니다.</p>
+            <div class="rule-summary">한 번 잃으면 되돌릴 수 없는 자산</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 랜섬웨어</li>
+              <li><strong>대응</strong> 정기 백업</li>
+              <li><strong>강화</strong> 클라우드 + 외장 저장</li>
+              <li><strong>관리</strong> 최소 정보 저장</li>
+            </ul>
+
+            <p class="rule-desc">
+              데이터 유출은 장기간 악용될 수 있어 피해가 큽니다. 중요한 파일은
+              반드시 여러 위치에 분산 저장하고 민감한 정보는 최소한으로 보관해야
+              합니다.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="section-title-wrap" style="text-align: center">
+      <div class="section-title-wrap action-title">
         <p class="section-label">Action Guide</p>
         <h2 class="section-title">
           보안을 지키기 위해 해야 할 행동과 하지 말아야 할 행동
         </h2>
       </div>
 
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          gap: 40px;
-          flex-wrap: wrap;
-        "
-      >
-        <article
-          class="issue-card"
-          style="
-            width: 550px;
-            min-height: 720px;
-            padding: 40px 36px;
-            display: flex;
-            flex-direction: column;
-          "
-        >
+      <div class="action-card-wrap">
+        <article class="issue-card action-card do-card">
           <span class="issue-tag">DO</span>
-          <h3 style="margin-bottom: 14px">해야 할 행동</h3>
+          <h3>해야 할 행동</h3>
 
-          <div
-            style="
-              background: rgba(99, 242, 208, 0.08);
-              border-left: 4px solid #63f2d0;
-              padding: 12px 14px;
-              margin-bottom: 20px;
-              font-size: 14px;
-              color: #9fb3c8;
-            "
-          >
-            👉 기본 원칙: 계정은 다르게, 인증은 강하게 관리한다.
+          <ul class="action-list do-list">
+            <li>서비스마다 다른 비밀번호 사용</li>
+            <li>2단계 인증(MFA) 설정</li>
+            <li>OS 및 앱 최신 상태 유지</li>
+            <li>백신 프로그램 정기 검사</li>
+            <li>URL 주소 확인 후 접속</li>
+            <li>중요한 파일 정기 백업</li>
+          </ul>
+
+          <div class="action-bottom-box do-bottom">
+            계정은 다르게, 인증은 강하게, 파일은 반드시 백업한다.
           </div>
-
-          <p style="color: #63f2d0; font-weight: 700; margin: 14px 0 8px">
-            🔐 계정 보안
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>✅ 서비스마다 다른 비밀번호 사용하기</li>
-            <li>✅ 2단계 인증(MFA) 설정하기</li>
-            <li>✅ 로그인 알림 기능 활성화하기</li>
-          </ul>
-
-          <p style="color: #63f2d0; font-weight: 700; margin: 18px 0 8px">
-            💻 기기 보안
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>✅ 운영체제와 앱 최신 상태 유지하기</li>
-            <li>✅ 백신 프로그램 설치 및 주기적 검사</li>
-            <li>✅ 잠금 화면 설정하기</li>
-          </ul>
-
-          <p style="color: #63f2d0; font-weight: 700; margin: 18px 0 8px">
-            🌐 인터넷 사용
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>✅ 로그인 전 URL 주소 확인하기</li>
-            <li>✅ 공용 PC 사용 후 반드시 로그아웃하기</li>
-            <li>✅ 수상한 문자는 공식 사이트에서 확인하기</li>
-          </ul>
-
-          <p style="color: #63f2d0; font-weight: 700; margin: 18px 0 8px">
-            📁 데이터 보호
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>✅ 중요한 파일 정기적으로 백업하기</li>
-            <li>✅ 클라우드와 외장 저장장치 함께 활용하기</li>
-          </ul>
         </article>
 
-        <article
-          class="issue-card"
-          style="
-            width: 550px;
-            min-height: 720px;
-            padding: 40px 36px;
-            display: flex;
-            flex-direction: column;
-          "
-        >
+        <article class="issue-card action-card dont-card">
           <span class="issue-tag">DON'T</span>
-          <h3 style="margin-bottom: 14px">하지 말아야 할 행동</h3>
+          <h3>하지 말아야 할 행동</h3>
 
-          <div
-            style="
-              background: rgba(255, 107, 107, 0.08);
-              border-left: 4px solid #ff6b6b;
-              padding: 12px 14px;
-              margin-bottom: 20px;
-              font-size: 14px;
-              color: #d6a0a0;
-            "
-          >
-            ⚠️ 기본 원칙: 급하게 누르거나, 아무 곳에 저장하지 않는다.
+          <ul class="action-list dont-list">
+            <li>의심스러운 링크 클릭</li>
+            <li>비밀번호 저장 또는 공유</li>
+            <li>출처 불명 파일 실행</li>
+            <li>동일 비밀번호 반복 사용</li>
+            <li>공용 와이파이에서 결제</li>
+            <li>보안 경고 무시</li>
+          </ul>
+
+          <div class="action-bottom-box dont-bottom">
+            급하게 누르지 말고, 아무 곳에 개인정보를 저장하지 않는다.
           </div>
-
-          <p style="color: #ff6b6b; font-weight: 700; margin: 14px 0 8px">
-            🚫 계정 관련 위험 행동
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>❌ 같은 비밀번호를 여러 사이트에 사용하기</li>
-            <li>❌ 공용 PC에 비밀번호 저장하기</li>
-            <li>❌ 자동 로그인을 무조건 켜두기</li>
-          </ul>
-
-          <p style="color: #ff6b6b; font-weight: 700; margin: 18px 0 8px">
-            ⚠️ 피싱 위험 행동
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>❌ 의심스러운 링크 바로 클릭하기</li>
-            <li>❌ “무료”, “긴급” 메시지에 바로 반응하기</li>
-            <li>❌ 발신자 확인 없이 첨부파일 열기</li>
-          </ul>
-
-          <p style="color: #ff6b6b; font-weight: 700; margin: 18px 0 8px">
-            📡 네트워크 위험 행동
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>❌ 공용 와이파이에서 금융 거래하기</li>
-            <li>❌ 알 수 없는 와이파이에 자동 연결하기</li>
-            <li>❌ 보안 경고를 무시하고 계속 진행하기</li>
-          </ul>
-
-          <p style="color: #ff6b6b; font-weight: 700; margin: 18px 0 8px">
-            💾 데이터 위험 행동
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              color: #c3ccd6;
-              line-height: 1.9;
-            "
-          >
-            <li>❌ 개인정보를 메모장에 저장하기</li>
-            <li>❌ 출처 불명의 USB나 파일 실행하기</li>
-          </ul>
         </article>
       </div>
     </section>
@@ -399,7 +180,7 @@
     </section>
 
     <footer class="footer">
-      <p>© 2026 주요 사이버 보안 위협과 예방법 안내 웹사이트</p>
+      <p>© 2026 '복학경로당' Security Guide</p>
     </footer>
   </body>
 </html>

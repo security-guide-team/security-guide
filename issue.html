@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Security Guide - 보안 이슈</title>
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="issue.css" />
+    <script src="issue.js" defer></script>
   </head>
   <body>
     <!-- 상단 공통 네비게이션 -->
@@ -13,9 +15,10 @@
       <div class="logo">Security Guide</div>
       <nav class="nav">
         <ul>
-          <li><a href="main.html">홈</a></li>
+          <li><a href="index.html">홈</a></li>
           <li><a href="issue.html">보안 이슈</a></li>
           <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="practice.html">보안 실습</a></li>
           <li><a href="real.html">보안 수칙</a></li>
           <li><a href="contact.html">팀 소개</a></li>
         </ul>
@@ -484,26 +487,13 @@
           <div class="more-button-wrap">
             <button class="more-button" type="button">영상 더보기</button>
           </div>
+          </div>
         </aside>
       </div>
     </main>
 
     <footer class="footer">
-      <p>© 2026 주요 사이버 보안 위협과 예방법 안내 웹사이트</p>
+      <p>© 2026 '복학경로당' Security Guide</p>
     </footer>
-
-    <!-- 뉴스 카드 펼침/접힘 기능 -->
-    <script>
-      const newsButtons = document.querySelectorAll('.news-card-head');
-
-      newsButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const card = button.closest('.news-card');
-          const isOpen = card.classList.toggle('is-open');
-
-          button.setAttribute('aria-expanded', String(isOpen));
-        });
-      });
-    </script>
   </body>
 </html>
