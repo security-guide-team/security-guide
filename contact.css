@@ -311,3 +311,26 @@
   background: var(--accent);
   color: #ffffff;
 }
+
+.form-status {
+  display: none;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.form-status.visible {
+  display: block;
+}
+
+.form-status.error {
+  background: rgba(239, 91, 91, 0.1);
+  border-color: rgba(239, 91, 91, 0.34);
+  color: #ef5b5b;
+}
