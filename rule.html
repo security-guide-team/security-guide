@@ -1,0 +1,451 @@
+﻿<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Guide - 보안 수칙</title>
+    <script src="theme.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="rule.css" />
+    <script src="rule.js" defer></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">Security Guide</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="issue.html">보안 이슈</a></li>
+          <li><a href="owasp.html">OWASP Top10</a></li>
+          <li><a href="rule.html">보안 수칙</a></li>
+          <li><a href="contact.html">팀 소개</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero real-hero">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content real-hero-content">
+        <p class="hero-subtitle">SECURITY CHECKLIST</p>
+        <h1>실생활 보안 수칙</h1>
+        <p class="hero-text">
+          보안은 특별한 기술보다 매일 반복하는 작은 습관에서 시작됩니다.<br />
+          아래 수칙들을 확인하고 안전한 인터넷 사용 습관을 만들어 봅시다.
+        </p>
+
+        <div class="rule-tabs">
+          <div class="rule-tab active" data-filter="ACCOUNT">계정 관리</div>
+          <div class="rule-tab" data-filter="DEVICE">기기 보안</div>
+          <div class="rule-tab" data-filter="PHISHING">피싱 대응</div>
+          <div class="rule-tab" data-filter="DATA">데이터 보호</div>
+        </div>
+
+        <div class="rule-card-grid">
+          <article class="issue-card rule-card" data-category="ACCOUNT">
+            <span class="issue-tag">ACCOUNT</span>
+            <h3>계정 관리</h3>
+            <div class="rule-summary">계정 탈취를 막는 첫 번째 방어선</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 비밀번호 재사용</li>
+              <li><strong>대응</strong> 서비스별 다른 비밀번호</li>
+              <li><strong>강화</strong> 2단계 인증(MFA)</li>
+              <li><strong>관리</strong> 로그인 기록 확인</li>
+            </ul>
+
+            <p class="rule-desc">
+              하나의 계정이 해킹되면 이메일, SNS, 클라우드까지 연쇄적으로 침해될
+              수 있습니다. 특히 이메일 계정은 모든 계정의 중심이므로 가장 강하게
+              보호해야 합니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="ACCOUNT">
+            <span class="issue-tag">ACCOUNT</span>
+            <h3>비밀번호 관리</h3>
+            <div class="rule-summary">강력한 비밀번호 설정의 중요성</div>
+
+            <ul class="rule-points">
+              <li><strong>기본</strong> 최소 12자 이상</li>
+              <li><strong>구성</strong> 대/소문자, 숫자, 특수문자 혼합</li>
+              <li><strong>회피</strong> 생일, 이름 포함 금지</li>
+              <li><strong>도구</strong> 비밀번호 관리자 사용</li>
+            </ul>
+
+            <p class="rule-desc">
+              비밀번호 관리자를 사용하면 각 서비스마다 복잡한 비밀번호를 사용할
+              수 있습니다. 무료 및 유료 솔루션 모두 이용 가능하며, 자동 채우기
+              기능으로 편의성도 높입니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="ACCOUNT">
+            <span class="issue-tag">ACCOUNT</span>
+            <h3>복구 수단 설정</h3>
+            <div class="rule-summary">계정 복구를 위한 사전 준비</div>
+
+            <ul class="rule-points">
+              <li><strong>필수</strong> 복구용 이메일 등록</li>
+              <li><strong>필수</strong> 휴대폰 번호 등록</li>
+              <li><strong>선택</strong> 보안 질문 설정</li>
+              <li><strong>관리</strong> 정기적 갱신</li>
+            </ul>
+
+            <p class="rule-desc">
+              계정이 탈취되었을 때 신속한 복구를 위해 복구 수단을 미리 등록해야
+              합니다. 보조 이메일과 휴대폰 번호를 정확하게 유지하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="ACCOUNT">
+            <span class="issue-tag">ACCOUNT</span>
+            <h3>2단계 인증 설정</h3>
+            <div class="rule-summary">추가 보안 계층의 중요성</div>
+
+            <ul class="rule-points">
+              <li><strong>방식</strong> SMS, 이메일, 앱 중 선택</li>
+              <li><strong>권장</strong> 인증 앱 사용 (가장 안전)</li>
+              <li><strong>주의</strong> 복구 코드 안전 보관</li>
+              <li><strong>설정</strong> 주요 계정 우선 적용</li>
+            </ul>
+
+            <p class="rule-desc">
+              2단계 인증은 비밀번호가 탈취되어도 계정 접근을 차단합니다. Google
+              Authenticator, Microsoft Authenticator 등 앱 기반 인증이 SMS보다
+              안전합니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DEVICE">
+            <span class="issue-tag">DEVICE</span>
+            <h3>기기 보안</h3>
+            <div class="rule-summary">개인정보가 모여있는 핵심 장치</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 업데이트 미적용</li>
+              <li><strong>대응</strong> OS 및 앱 최신 유지</li>
+              <li><strong>강화</strong> 잠금 화면 설정</li>
+              <li><strong>주의</strong> 출처 불명 앱 설치 금지</li>
+            </ul>
+
+            <p class="rule-desc">
+              스마트폰과 PC는 인증 수단이기 때문에 침해되면 계정 보호가 무너질
+              수 있습니다. 특히 출처 불명의 앱이나 프로그램 설치는 악성코드
+              감염의 주요 원인이 됩니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DEVICE">
+            <span class="issue-tag">DEVICE</span>
+            <h3>보안 업데이트</h3>
+            <div class="rule-summary">알려진 취약점 패치의 필수성</div>
+
+            <ul class="rule-points">
+              <li><strong>중요</strong> 보안 업데이트 우선 설치</li>
+              <li><strong>권장</strong> 자동 업데이트 활성화</li>
+              <li><strong>관리</strong> 정기적 재시작</li>
+              <li><strong>확인</strong> 업데이트 이력 점검</li>
+            </ul>
+
+            <p class="rule-desc">
+              보안 업데이트는 발견된 취약점을 즉시 차단합니다. 업데이트를 미루면
+              해커의 공격 대상이 될 확률이 높아집니다. 자동 업데이트 설정을
+              권장합니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DEVICE">
+            <span class="issue-tag">DEVICE</span>
+            <h3>백신 및 방화벽</h3>
+            <div class="rule-summary">악성코드로부터의 방어</div>
+
+            <ul class="rule-points">
+              <li><strong>필수</strong> 백신 프로그램 설치</li>
+              <li><strong>필수</strong> 방화벽 활성화</li>
+              <li><strong>관리</strong> 정기적 바이러스 검사</li>
+              <li><strong>주의</strong> 의심 파일 격리</li>
+            </ul>
+
+            <p class="rule-desc">
+              Windows Defender, macOS 보안 기능 등 OS 기본 백신도 효과적입니다.
+              정기적 검사와 자동 격리 기능을 활용하여 악성코드로부터 보호하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DEVICE">
+            <span class="issue-tag">DEVICE</span>
+            <h3>공용 WiFi 보안</h3>
+            <div class="rule-summary">무선 네트워크 사용 시 주의사항</div>
+
+            <ul class="rule-points">
+              <li><strong>금지</strong> 공용 WiFi에서 결제</li>
+              <li><strong>금지</strong> 공용 WiFi에서 민감정보 입력</li>
+              <li><strong>권장</strong> VPN 사용</li>
+              <li><strong>확인</strong> 정식 네트워크명 확인</li>
+            </ul>
+
+            <p class="rule-desc">
+              카페, 공항의 무료 WiFi는 해킹하기 쉬워 개인정보 탈취 위험이
+              큽니다. VPN(가상 사설망)을 사용하거나, 계정 확인 등 민감한 작업은
+              이동 데이터(4G/5G)를 사용하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="PHISHING">
+            <span class="issue-tag">PHISHING</span>
+            <h3>피싱 대응</h3>
+            <div class="rule-summary">사용자의 심리를 노리는 공격</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 긴급/무료 문구</li>
+              <li><strong>대응</strong> URL 주소 확인</li>
+              <li><strong>강화</strong> 공식 사이트 직접 접속</li>
+              <li><strong>확인</strong> 발신자 검증</li>
+            </ul>
+
+            <p class="rule-desc">
+              피싱은 기술보다 심리를 이용하는 공격입니다. 링크를 바로 누르기보다
+              주소를 직접 입력하거나 공식 앱을 통해 접속하는 습관이 중요합니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="PHISHING">
+            <span class="issue-tag">PHISHING</span>
+            <h3>이메일 피싱</h3>
+            <div class="rule-summary">이메일을 통한 사기 탐지법</div>
+
+            <ul class="rule-points">
+              <li><strong>의심</strong> 낯선 발신자 이메일</li>
+              <li><strong>확인</strong> 발신자 이메일 주소 정확성</li>
+              <li><strong>점검</strong> 첨부 파일 확장자</li>
+              <li><strong>검증</strong> 공식 채널에서 재확인</li>
+            </ul>
+
+            <p class="rule-desc">
+              은행, 카드사 이름을 사칭한 이메일은 거의 피싱입니다. 정상 발신자
+              이메일 주소는 공식 홈페이지에서 확인하고, 첨부 파일 실행 전
+              바이러스 검사를 하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="PHISHING">
+            <span class="issue-tag">PHISHING</span>
+            <h3>스미싱 주의</h3>
+            <div class="rule-summary">문자 메시지를 통한 피싱</div>
+
+            <ul class="rule-points">
+              <li><strong>의심</strong> 미처리 요금 안내</li>
+              <li><strong>의심</strong> 배송 정보 단축 URL</li>
+              <li><strong>대응</strong> URL 클릭 금지</li>
+              <li><strong>보고</strong> 신고 번호로 신고</li>
+            </ul>
+
+            <p class="rule-desc">
+              배송, 요금, 상금 당첨 등의 명목으로 온 문자의 URL은 클릭하지
+              마세요. 공식 앱이나 직접 입력한 주소로 접속하여 정보를 확인하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="PHISHING">
+            <span class="issue-tag">PHISHING</span>
+            <h3>SNS 피싱</h3>
+            <div class="rule-summary">소셜 미디어를 통한 사기</div>
+
+            <ul class="rule-points">
+              <li><strong>주의</strong> 팔로워 증가 이벤트</li>
+              <li><strong>주의</strong> 경품 당첨 알림</li>
+              <li><strong>확인</strong> 공식 계정 확인 배지</li>
+              <li><strong>거절</strong> DM 링크 클릭 금지</li>
+            </ul>
+
+            <p class="rule-desc">
+              SNS에서 "팔로워 100만 축하", "경품 당첨" 등의 메시지와 링크는 거의
+              사기입니다. 공식 계정에는 인증 배지가 있으니 확인하고, DM 링크는
+              절대 클릭하지 마세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DATA">
+            <span class="issue-tag">DATA</span>
+            <h3>데이터 보호</h3>
+            <div class="rule-summary">한 번 잃으면 되돌릴 수 없는 자산</div>
+
+            <ul class="rule-points">
+              <li><strong>위험</strong> 랜섬웨어</li>
+              <li><strong>대응</strong> 정기 백업</li>
+              <li><strong>강화</strong> 클라우드 + 외장 저장</li>
+              <li><strong>관리</strong> 최소 정보 저장</li>
+            </ul>
+
+            <p class="rule-desc">
+              데이터 유출은 장기간 악용될 수 있어 피해가 큽니다. 중요한 파일은
+              반드시 여러 위치에 분산 저장하고 민감한 정보는 최소한으로 보관해야
+              합니다.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DATA">
+            <span class="issue-tag">DATA</span>
+            <h3>백업 전략</h3>
+            <div class="rule-summary">3-2-1 백업 규칙</div>
+
+            <ul class="rule-points">
+              <li><strong>기본</strong> 3개 복사본 유지</li>
+              <li><strong>저장</strong> 2가지 미디어에 저장</li>
+              <li><strong>위치</strong> 1개는 다른 장소에 보관</li>
+              <li><strong>확인</strong> 정기적 복구 테스트</li>
+            </ul>
+
+            <p class="rule-desc">
+              데이터 백업은 정기적이고 분산되어야 합니다. 클라우드 스토리지와
+              외장 하드 드라이브를 함께 사용하고, 가끔은 복구 가능한지
+              테스트하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DATA">
+            <span class="issue-tag">DATA</span>
+            <h3>개인정보 삭제</h3>
+            <div class="rule-summary">불필요한 정보 즉시 폐기</div>
+
+            <ul class="rule-points">
+              <li><strong>정책</strong> 필요 정보만 저장</li>
+              <li><strong>삭제</strong> 사용 종료 시 즉시 제거</li>
+              <li><strong>주의</strong> 휴지통 비우기</li>
+              <li><strong>관리</strong> 계정 정보 정기 점검</li>
+            </ul>
+
+            <p class="rule-desc">
+              신용카드 번호, 주민번호, 비밀번호 등을 파일이나 메모에 저장하지
+              마세요. 클라우드에 자동 저장되는 파일도 확인하고 불필요한 정보는
+              삭제하세요.
+            </p>
+          </article>
+
+          <article class="issue-card rule-card" data-category="DATA">
+            <span class="issue-tag">DATA</span>
+            <h3>파일 암호화</h3>
+            <div class="rule-summary">민감한 파일 보호 방법</div>
+
+            <ul class="rule-points">
+              <li><strong>도구</strong> Windows BitLocker, Mac FileVault</li>
+              <li><strong>클라우드</strong> 암호화 스토리지 이용</li>
+              <li><strong>파일</strong> 개별 파일 암호화</li>
+              <li><strong>관리</strong> 암호화 키 안전 보관</li>
+            </ul>
+
+            <p class="rule-desc">
+              민감한 파일이나 폴더는 암호화하여 보호하세요. 전체 드라이브
+              암호화는 기기 분실 시 데이터 탈취를 방지하며, 클라우드 계정도
+              암호화된 스토리지 서비스를 선택하는 것이 좋습니다.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz-section">
+      <div class="section-title-wrap quiz-title">
+        <p class="section-label">Security Quiz</p>
+        <h2 class="section-title">보안 상식 퀴즈</h2>
+        <p class="quiz-intro">
+          실생활에서 자주 마주치는 보안 상황을 O / X로 확인해보세요.
+        </p>
+      </div>
+
+      <article class="issue-card quiz-card">
+        <div id="quiz-status-row" class="quiz-status-row">
+          <span id="quiz-question-number" class="quiz-question-number"
+            >QUESTION 01</span
+          >
+          <span id="quiz-progress" class="quiz-progress">1 / 5</span>
+        </div>
+
+        <div id="quiz-progress-track" class="quiz-progress-track">
+          <div id="quiz-progress-fill" class="quiz-progress-fill"></div>
+        </div>
+
+        <div id="quiz-question-wrap" class="quiz-question-wrap">
+          <div id="quiz-start" class="quiz-start">
+            <div class="quiz-result-panel">
+              <span class="quiz-category">SECURITY QUIZ</span>
+              <h3>보안 퀴즈를 시작해볼까요?</h3>
+              <p>
+                O / X 문제를 풀면서 계정, 기기, 피싱, 데이터 보호 습관을
+                점검해보세요.
+              </p>
+              <button type="button" class="quiz-start-btn" id="quiz-start-btn">
+                문제 풀기
+              </button>
+            </div>
+          </div>
+
+          <div id="quiz-question-panel" class="quiz-question-panel">
+            <span id="quiz-category" class="quiz-category">ACCOUNT</span>
+            <p id="quiz-question" class="quiz-question"></p>
+          </div>
+
+          <p id="quiz-choice-guide" class="quiz-choice-guide">
+            이 문장이 맞다고 생각하면 O, 틀렸다고 생각하면 X를 선택하세요.
+          </p>
+
+          <div id="quiz-buttons" class="quiz-buttons">
+            <button type="button" class="quiz-btn" data-answer="true">O</button>
+            <button type="button" class="quiz-btn" data-answer="false">
+              X
+            </button>
+          </div>
+
+          <div id="quiz-feedback" class="quiz-feedback" hidden>
+            <p id="quiz-feedback-title" class="quiz-feedback-title"></p>
+            <div class="quiz-explanation-box">
+              <strong>해설</strong>
+              <p id="quiz-explanation" class="quiz-explanation"></p>
+            </div>
+            <button type="button" class="quiz-next-btn" id="quiz-next-btn">
+              다음 문제
+            </button>
+          </div>
+
+          <div id="quiz-result" class="quiz-result" hidden>
+            <div class="quiz-result-panel">
+              <span class="quiz-category">RESULT</span>
+              <h3>퀴즈 결과</h3>
+              <p class="quiz-score" id="quiz-score"></p>
+              <p class="quiz-level" id="quiz-level"></p>
+              <div class="quiz-risk-gauge" aria-hidden="true">
+                <div id="quiz-risk-fill" class="quiz-risk-fill"></div>
+              </div>
+              <p class="quiz-risk-text" id="quiz-risk-text"></p>
+              <div class="quiz-result-actions">
+                <button type="button" class="quiz-retry-btn" id="quiz-retry-btn">
+                  다시 풀기
+                </button>
+                <button type="button" class="quiz-other-btn" id="quiz-other-btn">
+                  다른 문제
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="bottom-banner">
+      <div class="bottom-overlay"></div>
+      <div class="bottom-content">
+        <p class="bottom-label">CORE PRINCIPLE</p>
+        <h2>
+          의심되면 하지 않는다<br />
+          편한 것보다 안전을 선택한다
+        </h2>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2026 '복학경로당' Security Guide</p>
+    </footer>
+  </body>
+</html>
