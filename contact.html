@@ -17,7 +17,9 @@
           <li><a href="index.html">홈</a></li>
           <li><a href="issue.html">보안 이슈</a></li>
           <li><a href="owasp.html">OWASP Top10</a></li>
-          <li><a href="real.html">보안 수칙</a></li>
+          <li><a href="practice.html">보안 실습</a></li>
+          <li><a href="securitycheck.html">위험 진단</a></li>
+          <li><a href="rule.html">보안 수칙</a></li>
           <li><a href="contact.html">팀 소개</a></li>
         </ul>
       </nav>
@@ -100,11 +102,11 @@
           <img src="img/bowon.png" class="team-profile-img" />
           <span class="team-role">팀원</span>
           <h3>최보원</h3>
-          <p>메인 홈 페이지 및 Contact 페이지 제작</p>
+          <p>위험진단 페이지 제작 및 담당페이지 JS 제작</p>
           <ul>
-            <li>팀 소개 페이지 설계 및 구현</li>
-            <li>메인 홈 페이지 설계 및 구현</li>
-            <li>총괄 디자인 담당</li>
+            <li>팀 소개 및 문의 페이지 JS 추가 및 내용 변경</li>
+            <li>메인 홈페이지 수정 및 JS 추가</li>
+            <li>위험 진단 페이지 설계 및 구현</li>
           </ul>
           <div class="member-links">
             <a href="https://github.com/Solalise" target="_blank">GitHub</a>
@@ -124,27 +126,45 @@
         <p class="section-label">Contact</p>
         <h2 class="section-title">문의 및 의견 남기기</h2>
       </div>
-      <form class="contact-form">
+      <form class="contact-form" id="contactForm" novalidate>
         <div class="form-row">
           <label for="name">이름</label>
-          <input type="text" id="name" placeholder="이름을 입력하세요" />
+          <input
+            type="text"
+            id="name"
+            placeholder="이름을 입력하세요"
+            required
+          />
         </div>
         <div class="form-row">
           <label for="email">이메일</label>
-          <input type="email" id="email" placeholder="이메일을 입력하세요" />
+          <input
+            type="email"
+            id="email"
+            placeholder="이메일을 입력하세요"
+            required
+          />
         </div>
         <div class="form-row">
           <label for="message">문의 내용</label>
           <textarea
             id="message"
             placeholder="문의 또는 의견을 입력하세요"
+            required
           ></textarea>
         </div>
         <button type="submit" class="form-btn">의견 보내기</button>
+        <p
+          class="form-status"
+          id="contactStatus"
+          role="status"
+          aria-live="polite"
+        ></p>
       </form>
     </section>
     <footer class="footer">
       <p>© 2026 '복학경로당' Security Guide</p>
     </footer>
+    <script src="contact.js"></script>
   </body>
 </html>

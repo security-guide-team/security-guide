@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Guide - 대화형 보안 실습</title>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="practice.css" />
+</head>
+
+<body>
+  <!-- 상단 공통 네비게이션 -->
+  <header class="header">
+    <div class="logo">Security Guide</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="issue.html">보안 이슈</a></li>
+        <li><a href="owasp.html">OWASP Top10</a></li>
+        <li><a href="practice.html">보안 실습</a></li>
+        <li><a href="securitycheck.html">위험 진단</a></li>
+        <li><a href="rule.html">보안 수칙</a></li>
+        <li><a href="contact.html">팀 소개</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="practice-page">
+    <!-- 페이지 소개 영역 -->
+    <section class="practice-hero">
+      <p class="practice-label">Interactive Sandbox</p>
+      <h1>대화형 보안 취약점 실습</h1>
+      <p class="practice-description">
+        왼쪽의 <strong>취약한 모드(BAD)</strong>와 오른쪽의 <strong>안전한 모드(GOOD)</strong>가 동일한 공격 시나리오에 대해 어떻게 다르게 반응하는지 실시간으로 테스트하고
+        비교해 보세요.
+      </p>
+    </section>
+
+    <!-- 실습 선택 탭 -->
+    <div class="practice-tabs-wrap">
+      <div class="practice-tabs" role="tablist">
+        <button class="practice-tab active" data-tab="xss" role="tab" aria-selected="true">① XSS 공격 실습
+          (A05:2025)</button>
+        <button class="practice-tab" data-tab="access" role="tab" aria-selected="false">② 접근 통제 실습 (A01:2025)</button>
+        <button class="practice-tab" data-tab="brute" role="tab" aria-selected="false">③ 무차별 대입 실습 (A07:2025)</button>
+      </div>
+    </div>
+
+    <!-- =========================================================
+           실습 1: XSS (Cross-Site Scripting)
+      ========================================================= -->
+    <section id="xss-challenge" class="challenge-section active">
+      <div class="mission-guide">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          유저 미션 가이드
+        </h3>
+        <p>
+          아래 입력창에 <code>&lt;img src=x onerror=alert('Hacked!')&gt;</code> 코드를 복사하여 등록 버튼을 눌러 보세요!
+        </p>
+      </div>
+
+      <div class="split-view">
+        <!-- BAD (취약) -->
+        <article class="pane pane-bad">
+          <div class="pane-header">
+            <span class="pane-title">취약한 환경 (BAD)</span>
+            <span class="pane-badge">Vulnerable</span>
+          </div>
+          <div class="pane-body">
+            <div class="practice-form-group">
+              <input type="text" id="badXssInput" class="practice-input" placeholder="한 줄 방명록을 등록하세요..." />
+              <button type="button" id="badXssSubmit" class="practice-btn">등록</button>
+            </div>
+            <div class="guestbook-box">
+              <p class="guestbook-title">등록된 방명록 리스트 (innerHTML 렌더링)</p>
+              <div id="badXssList" class="guestbook-list">
+                <div class="guestbook-item">방명록 서비스에 오신 것을 환영합니다!</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- GOOD (안전) -->
+        <article class="pane pane-good">
+          <div class="pane-header">
+            <span class="pane-title">안전한 환경 (GOOD)</span>
+            <span class="pane-badge">Secure</span>
+          </div>
+          <div class="pane-body">
+            <div class="practice-form-group">
+              <input type="text" id="goodXssInput" class="practice-input" placeholder="한 줄 방명록을 등록하세요..." />
+              <button type="button" id="goodXssSubmit" class="practice-btn">등록</button>
+            </div>
+            <div class="guestbook-box">
+              <p class="guestbook-title">등록된 방명록 리스트 (textContent 렌더링)</p>
+              <div id="goodXssList" class="guestbook-list">
+                <div class="guestbook-item">방명록 서비스에 오신 것을 환영합니다!</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+           실습 2: Broken Access Control (접근 통제 미흡)
+      ========================================================= -->
+    <section id="access-challenge" class="challenge-section">
+      <div class="mission-guide">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          유저 미션 가이드
+        </h3>
+        <p>
+          <code>F12</code> 키를 눌러 개발자 도구를 열고, <strong>Application</strong>(혹은 애플리케이션) -&gt; <strong>Local
+            Storage</strong>(로컬 스토리지) 탭으로 이동한 뒤, Key가 <code>role</code>인 Value 값을 <code>admin</code>으로 수정하고 페이지를 유지하거나
+          이곳을 확인해 보세요!
+        </p>
+      </div>
+
+      <div class="split-view">
+        <!-- BAD (취약) -->
+        <article class="pane pane-bad">
+          <div class="pane-header">
+            <span class="pane-title">취약한 환경 (BAD)</span>
+            <span class="pane-badge">Vulnerable</span>
+          </div>
+          <div class="pane-body">
+            <div class="user-status-bar">
+              <span>현재 로그인 상태:</span>
+              <span id="badRoleBadge" class="role-badge">user</span>
+            </div>
+
+            <div class="menu-list">
+              <div class="menu-item">내 주문 내역 조회</div>
+              <div class="menu-item">개인 정보 수정</div>
+            </div>
+
+            <!-- 관리자 비밀 대시보드 (LocalStorage 감지에 따라 display: block 처리) -->
+            <div id="badAdminDashboard" class="admin-dashboard" style="display: none;">
+              <h4>⚠️ [관리자 비밀 대시보드 - 회원 정보 전체 관리]</h4>
+              <div class="admin-data-list">
+                <div class="admin-data-item">
+                  <span>이름: admin (관리자) | 이메일: admin@site.com</span>
+                  <button class="practice-btn bad-delete-btn" style="padding: 4px 8px; font-size: 11px;"
+                    data-user="admin">삭제</button>
+                </div>
+                <div class="admin-data-item">
+                  <span>이름: user1 (일반회원) | 이메일: user1@site.com</span>
+                  <button class="practice-btn bad-delete-btn" style="padding: 4px 8px; font-size: 11px;"
+                    data-user="user1">삭제</button>
+                </div>
+                <div class="admin-data-item">
+                  <span>이름: user2 (일반회원) | 이메일: user2@site.com</span>
+                  <button class="practice-btn bad-delete-btn" style="padding: 4px 8px; font-size: 11px;"
+                    data-user="user2">삭제</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="hint-box">
+              <strong>💡 개발자 힌트 박스</strong>
+              로컬 스토리지의 <code>role</code> 키 값을 <code>admin</code>으로 수정한 뒤 브라우저가 화면을 어떻게 변경하는지 보세요.
+            </div>
+          </div>
+        </article>
+
+        <!-- GOOD (안전) -->
+        <article class="pane pane-good">
+          <div class="pane-header">
+            <span class="pane-title">안전한 환경 (GOOD)</span>
+            <span class="pane-badge">Secure</span>
+          </div>
+          <div class="pane-body">
+            <div class="user-status-bar">
+              <span>현재 로그인 상태:</span>
+              <span id="goodRoleBadge" class="role-badge">user</span>
+            </div>
+
+            <div class="menu-list">
+              <div class="menu-item">내 주문 내역 조회</div>
+              <div class="menu-item">개인 정보 수정</div>
+            </div>
+
+            <div class="secure-api-simulator">
+              <p style="font-size: 14px; font-weight: 700; margin-bottom: 8px;">서버 통신 시뮬레이터 (JWT 검증)</p>
+              <button type="button" id="callGoodApiBtn" class="practice-btn" style="width: 100%;">관리자 API 데이터 요청
+                시도</button>
+              <div id="goodApiLog" class="secure-api-log">
+                API 호출 대기 중...
+              </div>
+            </div>
+
+            <div class="hint-box">
+              <strong>💡 개발자 힌트 박스</strong>
+              이곳도 동일하게 Local Storage의 <code>role</code>을 <code>admin</code>으로 변경하고 위 버튼을 눌러 API를 요청해 보세요. 서버 측 검증이 작동하여
+              통신이 거부되는 결과를 확인할 수 있습니다.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+           실습 3: Authentication Failures (인증 실패)
+      ========================================================= -->
+    <section id="brute-challenge" class="challenge-section">
+      <div class="mission-guide">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          유저 미션 가이드
+        </h3>
+        <p>
+          각 영역의 <strong>[자동 무차별 대입 공격 시작]</strong> 버튼을 눌러 해커가 비밀번호를 탈취하는 과정을 작동시켜 보세요. 안전한 환경에서는 계정 잠금 정책이 해커의 공격을 즉시
+          중단시키고 방어합니다.
+        </p>
+      </div>
+
+      <div class="split-view">
+        <!-- BAD (취약) -->
+        <article class="pane pane-bad">
+          <div class="pane-header">
+            <span class="pane-title">취약한 환경 (BAD)</span>
+            <span class="pane-badge">Vulnerable</span>
+          </div>
+          <div class="pane-body">
+            <div class="brute-force-grid">
+              <!-- 로그인 창 -->
+              <div class="login-card">
+                <h4>로그인 폼 (제한 없음)</h4>
+                <form class="login-form-group">
+                  <div>
+                    <label>아이디</label>
+                    <input type="text" value="admin" class="login-input" style="width: 100%;" readonly />
+                  </div>
+                  <div>
+                    <label>비밀번호 (4자리 숫자)</label>
+                    <input type="password" id="badPwInput" class="login-input" style="width: 100%;" placeholder="••••"
+                      readonly />
+                  </div>
+                  <button type="submit" id="badLoginBtn" class="practice-btn"
+                    style="padding: 10px; width: 100%; margin-top: 10px;">로그인</button>
+                </form>
+              </div>
+
+              <!-- 공격기 -->
+              <div class="simulator-card">
+                <h4>해커 시뮬레이터</h4>
+                <div class="sim-status">
+                  <div id="badSimNum" class="sim-number">0000</div>
+                  <p style="font-size: 12px; color: var(--text-soft); margin-top: 5px;">현재 무작위 대입 중인 번호</p>
+                  <div class="sim-progress-bar">
+                    <div id="badSimFill" class="sim-progress-fill"></div>
+                  </div>
+                </div>
+                <button type="button" id="badSimBtn" class="practice-btn" style="width: 100%;">공격 시작</button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- GOOD (안전) -->
+        <article class="pane pane-good">
+          <div class="pane-header">
+            <span class="pane-title">안전한 환경 (GOOD)</span>
+            <span class="pane-badge">Secure</span>
+          </div>
+          <div class="pane-body">
+            <!-- 계정 잠금 오버레이 -->
+            <div id="goodLockoutOverlay" class="lockout-overlay" style="display: none;">
+              <div class="lockout-icon">🔒</div>
+              <div class="lockout-title">계정 잠금 활성화</div>
+              <div class="lockout-desc">
+                로그인 5회 오류로 인해 계정 보호 정책이 작동했습니다.<br>
+                시스템 보안을 위해 30초 동안 로그인이 일시 차단됩니다.
+              </div>
+              <div id="goodLockoutTimer" class="lockout-timer">30초</div>
+              <div class="lockout-progress">
+                <div class="lockout-progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="brute-force-grid">
+              <!-- 로그인 창 -->
+              <div class="login-card">
+                <h4>로그인 폼 (5회 오류 잠금)</h4>
+                <form class="login-form-group">
+                  <div>
+                    <label>아이디</label>
+                    <input type="text" value="admin" class="login-input" style="width: 100%;" readonly />
+                  </div>
+                  <div>
+                    <label>비밀번호 (4자리 숫자)</label>
+                    <input type="password" id="goodPwInput" class="login-input" style="width: 100%;"
+                      placeholder="••••" />
+                  </div>
+                  <button type="submit" id="goodLoginBtn" class="practice-btn"
+                    style="padding: 10px; width: 100%; margin-top: 10px;">로그인</button>
+                </form>
+              </div>
+
+              <!-- 공격기 -->
+              <div class="simulator-card">
+                <h4>해커 시뮬레이터</h4>
+                <div class="sim-status">
+                  <div id="goodSimNum" class="sim-number">0000</div>
+                  <p style="font-size: 12px; color: var(--text-soft); margin-top: 5px;">현재 무작위 대입 중인 번호</p>
+                  <div class="sim-progress-bar">
+                    <div id="goodSimFill" class="sim-progress-fill"></div>
+                  </div>
+                </div>
+                <button type="button" id="goodSimBtn" class="practice-btn" style="width: 100%;">공격 시작</button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================================================
+           하단 핵심 소스 코드 비교 영역
+      ========================================================= -->
+    <section class="code-viewer-section">
+      <h3 class="code-viewer-title">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+        동적 코드 비교 (Core Code Viewer)
+      </h3>
+
+      <div class="code-comparison">
+        <!-- BAD Code -->
+        <div class="code-box code-box-bad">
+          <div class="code-box-header">
+            <span>취약한 자바스크립트 소스 코드</span>
+            <span>Vulnerable</span>
+          </div>
+          <pre id="badCodeBlock" class="code-body"><code>// 로딩 중...</code></pre>
+        </div>
+
+        <!-- GOOD Code -->
+        <div class="code-box code-box-good">
+          <div class="code-box-header">
+            <span>보안 조치된 자바스크립트 소스 코드</span>
+            <span>Secure</span>
+          </div>
+          <pre id="goodCodeBlock" class="code-body"><code>// 로딩 중...</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+         공통 교육 설명용 모달 창
+    ========================================================= -->
+  <div id="practiceModal" class="modal-overlay" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <header class="modal-header">
+        <div class="modal-badge">Category</div>
+        <h3 class="modal-title">공격 성공 / 방어 성공 결과</h3>
+        <button type="button" class="modal-close-btn" aria-label="닫기">×</button>
+      </header>
+
+      <div class="modal-body">
+        <div class="modal-section">
+          <h4>💡 취약점 교육 및 분석</h4>
+          <div id="modalDescription">상세 내용 로딩 중...</div>
+        </div>
+
+        <div class="modal-section modal-code-wrap">
+          <h4>🛡️ 개발자 대응 권장 코드</h4>
+          <div style="position: relative;">
+            <pre class="modal-code"><code>// 대응 스니펫</code></pre>
+            <button type="button" class="modal-copy-btn">코드 복사</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <button type="button" id="modalConfirmBtn" class="btn btn-primary"
+          style="padding: 10px 24px; border-radius: 8px;">확인 완료</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- 하단 공통 푸터 -->
+  <footer class="footer">
+    <p>© 2026 '복학경로당' Security Guide</p>
+  </footer>
+
+  <!-- 스크립트 연결 -->
+  <script src="practice.js"></script>
+</body>
+
+</html>
