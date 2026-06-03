@@ -18,9 +18,7 @@
           <li><a href="index.html">홈</a></li>
           <li><a href="issue.html">보안 이슈</a></li>
           <li><a href="owasp.html">OWASP Top10</a></li>
-          <li><a href="practice.html">보안 실습</a></li>
-          <li><a href="securitycheck.html">위험 진단</a></li>
-          <li><a href="rule.html">보안 수칙</a></li>
+          <li><a href="real.html">보안 수칙</a></li>
           <li><a href="contact.html">팀 소개</a></li>
         </ul>
       </nav>
@@ -37,7 +35,21 @@
       <div class="issue-content">
         <!-- 클릭하면 요약이 펼쳐지는 보안 뉴스 카드 목록 -->
         <section class="news-section" aria-label="보안 이슈 뉴스 목록">
-          <div class="news-grid">
+          <div class="news-filter" aria-label="뉴스 카테고리 필터">
+            <button class="filter-button is-active" type="button" data-category="전체">전체</button>
+            <button class="filter-button" type="button" data-category="피싱">피싱</button>
+            <button class="filter-button" type="button" data-category="랜섬웨어">랜섬웨어</button>
+            <button class="filter-button" type="button" data-category="취약점">취약점</button>
+            <button class="filter-button" type="button" data-category="개인정보">개인정보</button>
+            <button class="filter-button" type="button" data-category="정책/공공">정책/공공</button>
+            <button class="filter-button" type="button" data-category="기타">기타</button>
+          </div>
+
+          <p class="news-status" id="newsStatus" role="status">뉴스를 불러오는 중입니다...</p>
+          <div class="news-grid" id="newsGrid" aria-live="polite"></div>
+
+          <!-- API 오류가 나면 issue.js가 아래 기존 정적 카드를 fallback으로 사용합니다. -->
+          <template id="fallbackNewsTemplate">
             <article class="news-card">
               <button
                 class="news-card-head"
@@ -444,50 +456,72 @@
                 </a>
               </div>
             </article>
-          </div>
+          </template>
 
           <div class="more-button-wrap">
-            <button class="more-button" type="button">뉴스 더보기</button>
+            <button class="more-button" id="loadMoreNews" type="button">뉴스 더보기</button>
           </div>
         </section>
 
         <!-- 유튜브 썸네일을 클릭하면 새 창으로 영상 이동 -->
         <aside class="trend-panel" aria-label="보안 트렌드 유튜브 영상">
-          <h2>최신 보안 트렌드를 확인하세요</h2>
+          <h2>최신 보안 트렌드 영상</h2>
+          <p class="trend-panel-desc">선정한 보안 채널의 최신 영상을 자동으로 불러옵니다.</p>
 
-          <div class="video-list">
-            <a
-              class="video-frame"
-              href="https://www.youtube.com/watch?v=1yu3hr6yUok"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://img.youtube.com/vi/1yu3hr6yUok/hqdefault.jpg"
-                alt="보안 트렌드 유튜브 영상 1"
-                loading="lazy"
-              />
-              <span class="video-play" aria-hidden="true"></span>
-            </a>
-
-            <a
-              class="video-frame"
-              href="https://www.youtube.com/watch?v=mN_D9yU_smg"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="https://img.youtube.com/vi/mN_D9yU_smg/hqdefault.jpg"
-                alt="보안 트렌드 유튜브 영상 2"
-                loading="lazy"
-              />
-              <span class="video-play" aria-hidden="true"></span>
-            </a>
+          <div class="video-channel-filter" aria-label="유튜브 채널 필터">
+            <button class="video-channel-button active" type="button" data-channel="노말틱">노말틱</button>
+            <button class="video-channel-button" type="button" data-channel="보안뉴스">보안뉴스</button>
+            <button class="video-channel-button" type="button" data-channel="KISA">KISA</button>
           </div>
+
+          <div class="video-list" id="videoList" aria-live="polite"></div>
+
+          <template id="fallbackVideoTemplate">
+            <article class="video-card">
+              <a
+                class="video-frame"
+                href="https://www.youtube.com/watch?v=1yu3hr6yUok"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://img.youtube.com/vi/1yu3hr6yUok/hqdefault.jpg"
+                  alt="보안 트렌드 유튜브 영상 1"
+                  loading="lazy"
+                />
+                <span class="video-play" aria-hidden="true"></span>
+              </a>
+              <div class="video-info">
+                <span class="video-category-badge">기타</span>
+                <h3 class="video-title">보안 트렌드 영상</h3>
+                <p class="video-meta">YouTube · 백업 영상</p>
+              </div>
+            </article>
+
+            <article class="video-card">
+              <a
+                class="video-frame"
+                href="https://www.youtube.com/watch?v=mN_D9yU_smg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://img.youtube.com/vi/mN_D9yU_smg/hqdefault.jpg"
+                  alt="보안 트렌드 유튜브 영상 2"
+                  loading="lazy"
+                />
+                <span class="video-play" aria-hidden="true"></span>
+              </a>
+              <div class="video-info">
+                <span class="video-category-badge">기타</span>
+                <h3 class="video-title">보안 트렌드 영상</h3>
+                <p class="video-meta">YouTube · 백업 영상</p>
+              </div>
+            </article>
+          </template>
 
           <div class="more-button-wrap">
-            <button class="more-button" type="button">영상 더보기</button>
-          </div>
+            <button class="more-button" id="loadMoreVideos" type="button">영상 더보기</button>
           </div>
         </aside>
       </div>
