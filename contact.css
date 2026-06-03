@@ -243,3 +243,71 @@
 .member-links {
   margin-top: 30px;
 }
+
+/* Light / Dark Theme */
+.team-card,
+.contact-form {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: 0 14px 34px rgba(55, 96, 150, 0.12);
+}
+
+:root[data-theme='dark'] .team-card,
+:root[data-theme='dark'] .contact-form {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.team-card:hover,
+.team-card.leader {
+  border-color: var(--accent-border);
+}
+
+.team-profile-img {
+  border-color: var(--accent-border);
+  box-shadow: 0 10px 24px rgba(55, 96, 150, 0.16);
+}
+
+.team-role,
+.member-links a {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.member-links a {
+  border-color: var(--accent-border);
+}
+
+.team-card h3,
+.form-row label {
+  color: var(--text-strong);
+}
+
+.team-card p,
+.team-card li {
+  color: var(--text-muted);
+}
+
+.team-card li::before {
+  color: var(--accent);
+}
+
+.form-row input,
+.form-row textarea {
+  background: var(--surface-soft);
+  border-color: var(--border-soft);
+  color: var(--text-main);
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  border-color: var(--accent);
+}
+
+.form-btn {
+  background: var(--accent);
+  color: #ffffff;
+}

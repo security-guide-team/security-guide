@@ -39,11 +39,7 @@ const top10Items = [
     heading: 'Security Misconfiguration',
     intro:
       '서버, 프레임워크, 클라우드 또는 애플리케이션이 안전하지 않게 구성되어 공격에 노출되는 상황입니다.',
-    risks: [
-      '디버그 정보 노출',
-      '기본 인증 정보',
-      '불필요한 서비스 활성화',
-    ],
+    risks: ['디버그 정보 노출', '기본 인증 정보', '불필요한 서비스 활성화'],
     cwe: ['CWE-16', 'CWE-200', 'CWE-933'],
     core: ['안전한 기본 구성', '불필요 요소 제거', '정기적 구성 검토'],
     description: [
@@ -175,11 +171,7 @@ const top10Items = [
     heading: 'Insecure Design',
     intro:
       '보안 요구사항을 설계 단계에서 충분히 반영하지 않으면 전체 시스템이 취약해집니다.',
-    risks: [
-      '비즈니스 로직 취약점',
-      '위협 모델 부족',
-      '불완전한 보안 검증',
-    ],
+    risks: ['비즈니스 로직 취약점', '위협 모델 부족', '불완전한 보안 검증'],
     cwe: ['CWE-50', 'CWE-312', 'CWE-693'],
     core: ['보안 설계 검토', '위협 모델링', '재사용 가능한 보안 패턴'],
     description: [
@@ -276,8 +268,7 @@ const top10Items = [
     code: 'A09:2025',
     title: 'Security Logging and Alerting Failures',
     heading: 'Security Logging and Alerting Failures',
-    intro:
-      '적절한 로깅과 알림이 없으면 침해를 탐지하거나 대응할 수 없습니다.',
+    intro: '적절한 로깅과 알림이 없으면 침해를 탐지하거나 대응할 수 없습니다.',
     risks: ['침해 미감지', '사건 대응 지연', '감사 추적 부족'],
     cwe: ['CWE-301', 'CWE-778', 'CWE-778'],
     core: ['중앙 로깅', '이상 징후 알림', '감사 추적 유지'],
@@ -357,9 +348,7 @@ function createTextBlock(lines) {
 function renderScenarios(scenarios) {
   return scenarios
     .map((item) => {
-      const codeBlock = item.code
-        ? `<pre><code>${item.code}</code></pre>`
-        : '';
+      const codeBlock = item.code ? `<pre><code>${item.code}</code></pre>` : '';
       return `<div class="scenario-item"><strong>${item.title}</strong><p>${item.text}</p>${codeBlock}</div>`;
     })
     .join('');
@@ -380,10 +369,7 @@ function renderItem(index) {
   panelScenarios.innerHTML = renderScenarios(item.scenarios);
 
   document.querySelectorAll('.top10-nav-button').forEach((button) => {
-    button.classList.toggle(
-      'active',
-      Number(button.dataset.index) === index,
-    );
+    button.classList.toggle('active', Number(button.dataset.index) === index);
   });
 }
 

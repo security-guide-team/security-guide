@@ -759,8 +759,8 @@ owasp 파트
 }
 
 .action-list {
-  list-style: none;
-  padding: 0;
+  list-style: disc;
+  padding-left: 20px;
   margin: 0;
 }
 
@@ -813,5 +813,288 @@ owasp 파트
   .action-card {
     width: 100%;
     max-width: 100%;
+  }
+}
+
+/* =========================================================
+  Light / Dark Theme
+========================================================= */
+:root {
+  --page-bg: #f5f9ff;
+  --surface: #ffffff;
+  --surface-soft: #edf5ff;
+  --surface-glass: rgba(255, 255, 255, 0.84);
+  --text-main: #17243a;
+  --text-strong: #0f1d32;
+  --text-muted: #5c6b80;
+  --text-soft: #728298;
+  --accent: #3f7ee8;
+  --accent-strong: #2f6fdf;
+  --accent-soft: rgba(63, 126, 232, 0.12);
+  --accent-border: rgba(63, 126, 232, 0.34);
+  --border-soft: rgba(47, 86, 136, 0.14);
+  --shadow-soft: 0 18px 48px rgba(55, 96, 150, 0.16);
+  --hero-overlay: rgba(245, 249, 255, 0.86);
+  --bottom-overlay: rgba(12, 28, 52, 0.28);
+}
+
+:root[data-theme='dark'] {
+  --page-bg: #0a0f16;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-soft: rgba(255, 255, 255, 0.02);
+  --surface-glass: rgba(10, 15, 22, 0.82);
+  --text-main: #f5f7fa;
+  --text-strong: #ffffff;
+  --text-muted: #c8d0da;
+  --text-soft: #9ca8b5;
+  --accent: #9fcb98;
+  --accent-strong: #63f2d0;
+  --accent-soft: rgba(159, 203, 152, 0.12);
+  --accent-border: rgba(159, 203, 152, 0.38);
+  --border-soft: rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 18px 38px rgba(0, 0, 0, 0.24);
+  --hero-overlay: rgba(8, 12, 18, 0.72);
+  --bottom-overlay: rgba(9, 14, 20, 0.72);
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text-main);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.header {
+  background: var(--surface-glass);
+  border-bottom-color: var(--border-soft);
+  box-shadow: 0 10px 30px rgba(47, 86, 136, 0.08);
+  padding-right: 2.7%;
+}
+
+:root[data-theme='dark'] .header {
+  box-shadow: none;
+}
+
+.logo,
+.nav a:hover,
+.section-label,
+.hero-subtitle,
+.bottom-label,
+.issue-tag,
+.owasp-card h3,
+.tip-item span,
+.card-link:hover,
+.quick-number,
+.tip-item::before,
+.rule-points strong,
+.do-list li {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav a {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.theme-toggle {
+  flex: 0 0 auto;
+  min-width: 106px;
+  padding: 10px 16px;
+  border: 1px solid var(--accent-border);
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.section-title,
+.hero h1,
+.quick-card h3,
+.tip-item h3,
+.issue-card h3,
+.bottom-content h2 {
+  color: var(--text-strong);
+}
+
+.hero-overlay {
+  background: var(--hero-overlay);
+}
+
+.hero-image img {
+  filter: drop-shadow(0 20px 40px rgba(47, 86, 136, 0.14));
+}
+
+:root[data-theme='dark'] .hero-image img {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+}
+
+.hero-text,
+.intro-text-box,
+.issue-card p,
+.owasp-card p,
+.tip-item p,
+.rule-points li,
+.rule-desc,
+.footer {
+  color: var(--text-muted);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(63, 126, 232, 0.24);
+}
+
+:root[data-theme='dark'] .btn-primary {
+  color: #081018;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  border-color: var(--accent-border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--accent);
+}
+
+:root[data-theme='dark'] .btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+}
+
+.intro-text-box,
+.quick-card,
+.tip-item,
+.issue-card,
+.owasp-card,
+.rule-card,
+.action-card {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: 0 12px 34px rgba(55, 96, 150, 0.1);
+}
+
+:root[data-theme='dark'] .intro-text-box,
+:root[data-theme='dark'] .quick-card,
+:root[data-theme='dark'] .tip-item,
+:root[data-theme='dark'] .issue-card,
+:root[data-theme='dark'] .owasp-card,
+:root[data-theme='dark'] .rule-card,
+:root[data-theme='dark'] .action-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.quick-card:hover,
+.issue-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.quick-number,
+.tip-item::before,
+.rule-tab {
+  background: var(--accent-soft);
+}
+
+.tips-more-link,
+.rule-tab,
+.rule-summary,
+.action-bottom-box {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.rule-tab.active,
+.form-btn {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.rule-summary {
+  border-left-color: var(--accent);
+}
+
+.rule-points li {
+  border-bottom-color: var(--border-soft);
+}
+
+.bottom-overlay {
+  background: var(--bottom-overlay);
+}
+
+:root:not([data-theme='dark']) .bottom-content h2 {
+  color: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* Recent layout adjustments */
+.nav {
+  margin-left: auto;
+}
+
+.theme-toggle {
+  margin-left: 2.7%;
+}
+
+.bottom-banner {
+  min-height: auto;
+  margin: 48px 8% 0;
+  padding: 42px 0;
+  background: none;
+  border-radius: 0;
+}
+
+.bottom-overlay {
+  display: none;
+}
+
+.bottom-content h2,
+:root:not([data-theme='dark']) .bottom-content h2 {
+  color: var(--text-strong);
+}
+
+.real-hero ~ .bottom-banner {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    margin-left: 0;
+  }
+
+  .theme-toggle {
+    margin-left: 0;
   }
 }

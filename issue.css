@@ -350,6 +350,18 @@
     drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
+:root:not([data-theme='dark']) .video-play {
+  border-left-color: #ffffff;
+  filter: drop-shadow(0 0 12px rgba(63, 126, 232, 0.24))
+    drop-shadow(0 8px 18px rgba(47, 86, 136, 0.22));
+}
+
+:root:not([data-theme='dark']) .video-frame:hover .video-play {
+  border-left-color: var(--accent);
+  filter: drop-shadow(0 0 18px rgba(63, 126, 232, 0.42))
+    drop-shadow(0 10px 22px rgba(47, 86, 136, 0.26));
+}
+
 /* 태블릿 이하: 뉴스가 먼저 나오고 영상 패널이 아래로 내려감 */
 @media (max-width: 1100px) {
   .issue-hero {
@@ -445,4 +457,82 @@
   .video-frame {
     border-radius: 20px;
   }
+}
+
+/* Light / Dark Theme */
+.issue-hero {
+  background: var(--page-bg);
+}
+
+.issue-label,
+.news-number,
+.news-link,
+.more-button {
+  color: var(--accent);
+}
+
+.issue-hero h1,
+.news-title,
+.trend-panel h2 {
+  color: var(--text-strong);
+}
+
+.issue-hero p:last-child,
+.news-summary p,
+.news-date {
+  color: var(--text-muted);
+}
+
+.news-card,
+.trend-panel {
+  background: var(--surface);
+  border-color: var(--border-soft);
+  box-shadow: 0 14px 34px rgba(55, 96, 150, 0.12);
+}
+
+:root[data-theme='dark'] .news-card,
+:root[data-theme='dark'] .trend-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.025)
+  );
+}
+
+.news-card:hover,
+.news-card.is-open,
+.trend-panel {
+  border-color: var(--accent-border);
+}
+
+.news-number,
+.news-link,
+.more-button {
+  background: var(--accent-soft);
+}
+
+.news-link,
+.more-button {
+  border-color: var(--accent-border);
+}
+
+.news-card.is-open .news-card-body,
+.news-image,
+.video-frame {
+  border-color: var(--border-soft);
+}
+
+.news-image,
+.video-frame {
+  background: var(--surface-soft);
+}
+
+.more-button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.video-frame:hover {
+  border-color: var(--accent-border);
 }
