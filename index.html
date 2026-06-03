@@ -6,6 +6,7 @@
     <title>Security Guide</title>
     <script src="theme.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
   </head>
   <body>
     <!-- 위쪽 이동하는 칸 -->
@@ -153,9 +154,74 @@
         </div>
       </div>
       <div class="tips-more-link-wrap">
-        <a href="real.html" class="tips-more-link">
+        <a href="rule.html" class="tips-more-link">
           더 자세한 보안 수칙 알아보기 →
         </a>
+      </div>
+    </section>
+
+    <section class="section habit-section">
+      <div class="section-title-wrap">
+        <p class="section-label">Personal Checklist</p>
+        <h2 class="section-title">나의 보안 습관 점검</h2>
+      </div>
+
+      <div class="habit-panel">
+        <div class="habit-score">
+          <span>점검률</span>
+          <strong id="habitScore">0%</strong>
+          <div class="habit-progress" aria-hidden="true">
+            <span id="habitProgressBar"></span>
+          </div>
+          <p id="habitMessage">오늘 지킬 수 있는 항목부터 하나씩 체크해보세요.</p>
+        </div>
+
+        <div class="habit-list" id="habitChecklist">
+          <label class="habit-item">
+            <input type="checkbox" data-habit="password" />
+            <span>서비스마다 다른 비밀번호를 사용한다</span>
+          </label>
+          <label class="habit-item">
+            <input type="checkbox" data-habit="mfa" />
+            <span>중요 계정에 2단계 인증을 켜두었다</span>
+          </label>
+          <label class="habit-item">
+            <input type="checkbox" data-habit="link" />
+            <span>문자나 메일의 링크를 누르기 전에 주소를 확인한다</span>
+          </label>
+          <label class="habit-item">
+            <input type="checkbox" data-habit="update" />
+            <span>운영체제와 브라우저를 최신 상태로 유지한다</span>
+          </label>
+          <label class="habit-item">
+            <input type="checkbox" data-habit="backup" />
+            <span>중요 파일은 별도 위치에 백업해둔다</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section risk-dashboard-section">
+      <div class="section-title-wrap">
+        <p class="section-label">Live Risk Analysis</p>
+        <h2 class="section-title">최신 기사 기반 보안 위험 점수</h2>
+      </div>
+
+      <div class="risk-dashboard">
+        <div class="risk-score-card" id="riskScoreCard">
+          <span class="risk-score-label">오늘의 위험도</span>
+          <strong id="riskScore">분석 중</strong>
+          <p id="riskMessage">최신 보안 기사 키워드를 분석하고 있습니다.</p>
+          <div class="risk-keywords" id="riskKeywords">
+            <span class="is-empty">분석 대기</span>
+          </div>
+        </div>
+        <div class="risk-action-card">
+          <span class="risk-score-label">오늘 확인하면 좋은 것</span>
+          <ul class="risk-actions" id="riskActions">
+            <li>최신 기사 분석 후 확인할 항목을 추천합니다.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -166,7 +232,10 @@
         <h2 class="section-title">최신 보안 이슈</h2>
       </div>
 
-      <div class="issue-grid">
+      <p class="issue-status" id="homeNewsStatus" role="status">
+        최신 보안 기사를 불러오는 중입니다...
+      </p>
+      <div class="issue-grid" id="homeNewsGrid" aria-live="polite">
         <article class="issue-card">
           <span class="issue-tag">ISSUE 01</span>
           <h3>랜섬웨어 공격 증가</h3>
@@ -174,27 +243,7 @@
             기업과 개인을 대상으로 한 랜섬웨어 공격이 지속적으로 증가하고
             있으며, 중요 파일 암호화와 금전 요구 피해가 확대되고 있습니다.
           </p>
-          <a href="#" class="card-link">자세히 보기</a>
-        </article>
-
-        <article class="issue-card">
-          <span class="issue-tag">ISSUE 02</span>
-          <h3>피싱 이메일 확산</h3>
-          <p>
-            공공기관, 금융기관, 택배 안내 등을 사칭한 피싱 이메일과 메시지가
-            빠르게 확산되며 개인정보 탈취 피해가 발생하고 있습니다.
-          </p>
-          <a href="#" class="card-link">자세히 보기</a>
-        </article>
-
-        <article class="issue-card">
-          <span class="issue-tag">ISSUE 03</span>
-          <h3>대규모 개인정보 유출</h3>
-          <p>
-            서비스 해킹이나 관리 부실로 인해 개인정보가 유출되고 있으며, 유출된
-            정보는 스팸, 계정 탈취, 2차 범죄로 이어질 수 있습니다.
-          </p>
-          <a href="#" class="card-link">자세히 보기</a>
+          <a href="issue.html" class="card-link home-news-link">보안 이슈 페이지로 이동</a>
         </article>
       </div>
       <div class="tips-more-link-wrap">

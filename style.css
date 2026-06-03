@@ -375,6 +375,191 @@ ul {
   transform: translateY(-2px);
   box-shadow: 0 16px 30px rgba(159, 203, 152, 0.1);
 }
+
+.habit-section,
+.risk-dashboard-section {
+  padding-top: 34px;
+  padding-bottom: 34px;
+}
+
+.habit-panel,
+.risk-dashboard {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+  gap: 22px;
+}
+
+.habit-score,
+.habit-list,
+.risk-score-card,
+.risk-action-card {
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 14px 34px rgba(55, 96, 150, 0.12);
+}
+
+:root[data-theme='dark'] .habit-score,
+:root[data-theme='dark'] .habit-list,
+:root[data-theme='dark'] .risk-score-card,
+:root[data-theme='dark'] .risk-action-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+.habit-score,
+.risk-score-card,
+.risk-action-card {
+  padding: 28px;
+}
+
+.habit-score span,
+.risk-score-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.habit-score strong,
+.risk-score-card strong {
+  display: block;
+  color: var(--text-strong);
+  font-size: 52px;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.habit-progress {
+  overflow: hidden;
+  height: 12px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: rgba(125, 139, 155, 0.22);
+}
+
+.habit-progress span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+.habit-score p,
+.risk-score-card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.habit-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 22px;
+}
+
+.habit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 64px;
+  padding: 16px;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.5;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.habit-item:hover,
+.habit-item.checked {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+  color: var(--text-strong);
+}
+
+.habit-item input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
+.risk-dashboard {
+  grid-template-columns: minmax(280px, 0.54fr) minmax(0, 1fr);
+}
+
+.risk-score-card.low {
+  border-color: rgba(47, 191, 113, 0.34);
+}
+
+.risk-score-card.medium {
+  border-color: rgba(230, 162, 60, 0.42);
+}
+
+.risk-score-card.high {
+  border-color: rgba(239, 91, 91, 0.42);
+}
+
+.risk-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.risk-keywords span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 8px 12px;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.risk-keywords .is-empty {
+  border-color: var(--border-soft);
+  background: var(--surface-soft);
+  color: var(--text-muted);
+}
+
+.risk-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.risk-actions li {
+  padding: 14px 16px;
+  border: 1px solid var(--border-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.55;
+}
 /* =========================================================
 최신 보안 뉴스
 ========================================================= */
@@ -417,6 +602,56 @@ ul {
   font-size: 16px;
   color: #c3ccd6;
   margin-bottom: 22px;
+}
+
+.issue-status {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.issue-status:empty,
+.issue-status[hidden] {
+  display: none;
+}
+
+.issue-card .issue-date {
+  display: block;
+  margin: -4px 0 12px;
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.issue-card .home-news-link {
+  align-self: center;
+  width: fit-content;
+  margin-top: auto;
+  padding: 12px 18px;
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 900;
+  text-align: center;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.issue-card .home-news-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .card-link {
@@ -565,6 +800,9 @@ owasp 파트
 
   .intro-grid,
   .tips-list,
+  .habit-panel,
+  .habit-list,
+  .risk-dashboard,
   .owasp-grid {
     grid-template-columns: 1fr;
   }
